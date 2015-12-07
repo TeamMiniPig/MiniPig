@@ -1,0 +1,25 @@
+<h3 class="sub-headline">Create a Caucus</h3>
+
+<%= handle_message %>
+
+<form action="/caucus/create" method="post">
+
+  <div class="row">
+    <div class="five columns">
+      <input required class="u-full-width" type="text" name="caucus_name" placeholder="caucus name">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="five columns">
+      <input class="u-full-width" id="password-input" disabled=true
+             type="text" name="caucus_password" placeholder="password">
+    </div>
+    <div class="three columns">
+      <input type="checkbox" name="enable_password" id="enable-password">
+      <label class="label-small" for="enable_password">Enable password</label>
+    </div>
+  </div>
+
+  <button class="button-primary" type="submit">create</button>
+</form>

@@ -1,0 +1,81 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Caucus</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="/skeleton.css">
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- JS -->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js">
+    </script>
+    <script src="/app.js"></script>
+
+  </head>
+
+
+  <body>
+
+                                                      <!-- Navigation -->
+    <div class="navbar">
+
+      <nav class="container">
+
+        <div class="twelve columns">
+
+          <ul>
+
+            <li><a href="/">home</a></li>
+
+            <!-- Show these two tabs if no one is logged in -->
+            <% if session[:current_user] == nil %>
+              <li><a href="/login">login</a></li>
+              <li><a href="/register">register</a></li>
+
+
+            <!-- Registered user tabs -->
+            <% else %>
+              <li><a href="#">caucus</a>
+                <ul>
+                  <% if session[:current_user].caucus_id %>
+                  <li><a href="/caucus/home">my caucus</a></li>
+                  <% end %>
+                  <li><a href="/caucus/join">join</a></li>
+                  <li><a href="/caucus/create">create</a></li>
+                </ul>
+              </li>
+
+
+              <li><a href="/logout">logout</a></li>
+            <% end %>
+
+          </ul>
+
+        </div>
+
+      </nav>
+
+    </div>
+
+                                                      <!-- Ruby Yield -->
+    <div class="container">
+      <div class="row">
+
+        <h1 class="headline">Caucus</h1>
+
+        <div class="container">
+          <div class="row">
+            <!-- Ruby -->
+            <%= yield %>
+            <!-- End Ruby -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </body>
+</html>

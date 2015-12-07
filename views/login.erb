@@ -1,0 +1,20 @@
+<h3 class="sub-headline">login</h3>
+
+<%= handle_message %>
+
+<form action="/login" method="post">
+
+  <div class="row">
+    <div class="five columns">
+      <input required class="u-full-width" type="text" name="user_name" placeholder="username">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="five columns">
+      <input required class="u-full-width" type="password" name="password" placeholder="password">
+    </div>
+  </div>
+
+  <button class="button-primary" type="submit">log in</button>
+</form>
