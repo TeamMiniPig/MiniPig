@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8">
 
-    <title>Caucus</title>
+    <title>Hoonta</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="/normalize.css">
@@ -18,7 +18,7 @@
 
 
   <body>
-
+    <header>
                                                       <!-- Navigation -->
     <div class="navbar">
 
@@ -38,13 +38,13 @@
 
             <!-- Registered user tabs -->
             <% else %>
-              <li><a href="#">caucus</a>
+              <li><a href="#">hoonta</a>
                 <ul>
-                  <% if session[:current_user].caucus_id %>
-                  <li><a href="/caucus/home">my caucus</a></li>
+                  <% if session[:current_user].hoonta_id %>
+                  <li><a href="/hoonta/home">my hoonta</a></li>
                   <% end %>
-                  <li><a href="/caucus/join">join</a></li>
-                  <li><a href="/caucus/create">create</a></li>
+                  <li><a href="/hoonta/join">join</a></li>
+                  <li><a href="/hoonta/create">create</a></li>
                 </ul>
               </li>
 
@@ -60,12 +60,15 @@
 
     </div>
 
+    <div class="container">
+      <div class="row">
+        <a class="headline" href="/">Hoonta!</a>
+      </div>
+    </div>
+  </header>
                                                       <!-- Ruby Yield -->
     <div class="container">
       <div class="row">
-
-        <h1 class="headline">Caucus</h1>
-
         <div class="container">
           <div class="row">
             <!-- Ruby -->

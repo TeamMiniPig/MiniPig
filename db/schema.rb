@@ -16,7 +16,6 @@ ActiveRecord::Schema.define(version: 20151206020618) do
   create_table "activities", force: :cascade do |t|
     t.string  "activity_name",        limit: 255
     t.string  "activity_description", limit: 255
-    t.boolean "stay_in"
     t.integer "user_id",              limit: 4
     t.integer "category_id",          limit: 4
   end
@@ -26,17 +25,20 @@ ActiveRecord::Schema.define(version: 20151206020618) do
     t.string "category_description", limit: 255
   end
 
-  create_table "caucuses", force: :cascade do |t|
-    t.string  "caucus_name",     limit: 255
+  create_table "hoontas", force: :cascade do |t|
+    t.string  "hoonta_name",     limit: 255
+    t.string  "current_topic",   limit: 255
+    t.boolean "has_deadline"
+    t.string  "deadline",        limit: 255
     t.boolean "has_password"
-    t.string  "caucus_password", limit: 255
+    t.string  "hoonta_password", limit: 255
   end
 
   create_table "users", force: :cascade do |t|
     t.string  "user_name",       limit: 255
     t.string  "email",           limit: 255
     t.string  "password_digest", limit: 255
-    t.integer "caucus_id",       limit: 4
+    t.integer "hoonta_id",       limit: 4
   end
 
 end

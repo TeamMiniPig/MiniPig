@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  belongs_to :caucus
+  belongs_to :hoonta
   has_many :activities
 
   include BCrypt
@@ -27,4 +27,4 @@ end
 #   user_name
 #   email
 #   password_digest
-#   caucus_id
+#   hoonta_id

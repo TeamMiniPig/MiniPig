@@ -5,7 +5,7 @@ class ApplicationController < Sinatra::Base
 
   ActiveRecord::Base.establish_connection(
     adapter: 'mysql2',
-    database: 'caucus_db'
+    database: 'hoonta_db'
   )
 
   enable :sessions

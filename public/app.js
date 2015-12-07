@@ -15,6 +15,8 @@ window.onload = function() {
 				passwordInput.focus();
 			}
 			else {
+				passwordInput.class = "message-wrapper";
+				console.log(passwordInput.class);
 				passwordInput.value = '';
 				passwordInput.disabled = true;
 			}

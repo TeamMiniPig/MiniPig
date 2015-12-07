@@ -1,0 +1,5 @@
+<%= handle_message %>
+<h4 class="sub-headline">Make a decision together.</h4>
+
+<% @hoonta = Hoonta.find(session[:current_user].hoonta_id) %>
+<h5><%= @hoonta.hoonta_name %></h5>

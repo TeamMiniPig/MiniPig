@@ -61,19 +61,24 @@ class UserController < ApplicationController
 
     user = params[:user]
 
+    # Catch password mis-match
+    if user[:password] != params[:confirm_password]
+      set_message "Passwords do not match.", "error"
+      redirect '/register'
+
     # Catch invalid username
-    if user[:user_name].length < 4
-      set_message "username must be four or more characters", "error"
+    elsif user[:user_name].length < 4
+      set_message "Username must be four or more characters", "error"
       redirect '/register'
 
     # Catch invalid password
     elsif user[:password].length < 8
-      set_message "password must be eight or more characters", "error"
+      set_message "Password must be eight or more characters", "error"
       redirect 'register'
 
     # Catch name or email collision
     elsif user_or_email_exists? user[:user_name], user[:email]
-      set_message "username or email is already is use", "error"
+      set_message "Username or email is already is use", "error"
       redirect '/register'
 
     # If they make it this far, they can register!

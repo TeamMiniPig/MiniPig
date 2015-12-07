@@ -1,3 +1,4 @@
+/* Glyph font */
 @font-face {
   font-family: 'Material Icons';
   font-style: normal;
@@ -21,11 +22,25 @@
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: 'liga'; }
 
+/* Colors */
 html, body {
   background: #FEFEFE; }
 
+header {
+  background: #BF5059;
+  border-bottom: 3px solid #9CD0FF; }
+
+.headline {
+  text-decoration: none;
+  font-size: 4em;
+  color: #F1F9F7; }
+
+.headline:hover {
+  color: #9CD0FF; }
+
 .sub-headline {
-  color: #BF5059; }
+  margin-top: 15px;
+  color: #3fa60e; }
 
 /* Messages */
 .message-wrapper {
@@ -44,10 +59,12 @@ html, body {
   font-size: 1em; }
 
 .error {
-  background: rgba(189, 72, 72, 0.63); }
+  background: rgba(189, 72, 72, 0.63);
+  border: 2px solid rgba(204, 39, 39, 0.63); }
 
 .success {
-  background: rgba(45, 158, 44, 0.6); }
+  background: rgba(45, 158, 44, 0.6);
+  border: 2px solid rgba(45, 158, 44, 0.6); }
 
 .close {
   display: inline-block;
@@ -55,32 +72,57 @@ html, body {
   margin-right: 7px;
   cursor: pointer; }
 
+/* Form inputs */
+.text-input {
+  border: 1px solid #5ed625; }
+
+.text-input:not(:focus) {
+  border: 1px solid #a4df88; }
+
+input[disabled] {
+  background: rgba(131, 130, 129, 0.33);
+  border-color: #a1a1a1;
+  color: #a1a1a1; }
+
+.checkbox-and-label-wrapper {
+  max-height: 112px; }
+
 #enable-password {
-  margin-top: 1.5rem; }
+  display: inline-block;
+  float: left;
+  margin-top: 1.5rem;
+  margin-left: 10px; }
 
 .label-small {
   font-size: 0.6em;
   font-weight: normal;
+  margin-top: 1.5rem;
+  margin-left: 4px;
   display: inline-block;
-  padding-bottom: 1rem;
-  color: #E8DFCD; }
+  float: left;
+  color: #BF5059; }
+
+.thin {
+  margin: 0;
+  padding: 0; }
 
 /* Navigation */
 nav ul,
 nav ul li {
-  margin: 0; }
+  margin: 0;
+  background: #BF5059; }
 
 nav ul li {
   display: inline;
   float: left;
-  margin: 0 4px 0 0;
+  margin: 0;
   position: relative; }
 
 /* nav button link */
 nav ul li a {
   display: inline-block;
-  background: white;
-  color: black;
+  background: #BF5059;
+  color: #F1F9F7;
   margin: 5px 5px 5px 5px;
   text-transform: uppercase;
   text-decoration: none;
@@ -100,7 +142,7 @@ nav ul ul {
   min-width: 100%;
   height: 0;
   overflow: hidden;
-  background: white;
+  background: #BF5059;
   z-index: 100;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3); }
 
@@ -113,6 +155,7 @@ nav ul li:hover ul {
 
 /* list items in the drop-down button */
 nav ul ul li {
+  background: #BF5059;
   padding-top: 5px;
   float: none;
   display: list-item;
@@ -125,12 +168,14 @@ nav ul ul :last-child {
 
 /* link inside each list item */
 nav ul ul li a {
+  background: #BF5059;
   display: block;
   min-width: 84px;
   text-transform: none; }
 
 /* drop-down button when hovering on link child */
-nav ul li:hover > a {
-  color: #9CD0FF; }
+nav ul ul li:hover > a {
+  color: #9CD0FF;
+  background: #BF5059; }
 
 /*# sourceMappingURL=style.css.map */
