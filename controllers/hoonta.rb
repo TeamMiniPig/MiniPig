@@ -1,13 +1,39 @@
 class HoontaController < ApplicationController
 
+  def set_hoonta hoonta_id
+    session[:hoonta] = hoonta_id
+  end
+  def get_hoonta
+    Hoonta.find(session[:hoonta])
+  end
+  def clear_hoonta
+    session[:hoonta] = nil
+  end
+
   get '/' do
     authorized?
+    clear_hoonta
+    redirect '/hoonta/all'
+  end
+
+  get '/all' do
+    authorized?
+    clear_hoonta
+    erb :hoonta_landing
+  end
+  post '/all:id' do
+    authorized?
+    set_hoonta params[:id]
     redirect '/hoonta/home'
   end
 
   get '/home' do
     authorized?
-    erb :hoonta_home
+    if get_hoonta
+      erb :hoonta_home
+    else
+      redirect '/hoonta/all'
+    end
   end
 
   get '/join' do
@@ -44,12 +70,9 @@ class HoontaController < ApplicationController
       set_message 'Hoonta created.', 'success'
       user = current_user
       Roster.create(user_id: user.id, hoonta_id: hoonta.id)
+      set_hoonta hoonta.id
       redirect '/hoonta/home'
     end
-  end
-
-  get '/tmp' do
-    erb :hoonta_landing
   end
 
 end

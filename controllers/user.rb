@@ -96,6 +96,7 @@ class UserController < ApplicationController
   get '/logout' do
     authorized?
     session[:current_user] = nil;
+    session[:hoonta] = nil;
     set_message "Bye!", "success"
     redirect '/welcome'
   end
