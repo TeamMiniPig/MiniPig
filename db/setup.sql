@@ -1,2 +1,2 @@
-CREATE DATABASE caucus_db;
-use caucus_db;
+CREATE DATABASE hoonta_db;
+use hoonta_db;

@@ -13,37 +13,40 @@
 
 ActiveRecord::Schema.define(version: 20151208153649) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "activities", force: :cascade do |t|
-    t.string  "activity_name",        limit: 255
-    t.string  "activity_description", limit: 255
-    t.integer "user_id",              limit: 4
-    t.integer "category_id",          limit: 4
+    t.string  "activity_name"
+    t.string  "activity_description"
+    t.integer "user_id"
+    t.integer "category_id"
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "category_name",        limit: 255
-    t.string "category_description", limit: 255
+    t.string "category_name"
+    t.string "category_description"
   end
 
   create_table "hoontas", force: :cascade do |t|
-    t.string  "hoonta_name",     limit: 255
-    t.string  "current_topic",   limit: 255
+    t.string  "hoonta_name"
+    t.string  "current_topic"
     t.boolean "has_deadline"
-    t.string  "deadline",        limit: 255
+    t.string  "deadline"
     t.boolean "has_password"
-    t.string  "hoonta_password", limit: 255
+    t.string  "hoonta_password"
   end
 
   create_table "rosters", force: :cascade do |t|
-    t.integer "user_id",   limit: 4
-    t.integer "hoonta_id", limit: 4
+    t.integer "user_id"
+    t.integer "hoonta_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "user_name",       limit: 255
-    t.string "display_name",    limit: 255
-    t.string "email",           limit: 255
-    t.string "password_digest", limit: 255
+    t.string "user_name"
+    t.string "display_name"
+    t.string "email"
+    t.string "password_digest"
   end
 
 end

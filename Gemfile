@@ -7,6 +7,7 @@ gem 'activesupport'
 gem 'activerecord'
 gem 'rake'
 gem 'bcrypt'
+gem 'pg'
 
 gem 'json'
 #gem 'faker'
