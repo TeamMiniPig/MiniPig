@@ -61,6 +61,12 @@ header {
 .headline:hover {
   color: $sky-blue;
 }
+.slogan {
+  text-decoration: none;
+  font-size: 1.2em;
+  color: $white;
+  display: inline;
+}
 
 .sub-headline {
   margin-top: 15px;
