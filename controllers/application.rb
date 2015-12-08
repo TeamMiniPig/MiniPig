@@ -4,7 +4,7 @@ class ApplicationController < Sinatra::Base
   Bundler.require
 
   ActiveRecord::Base.establish_connection(
-    adapter: 'mysql2',
+    adapter: 'postgresql',
     database: 'hoonta_db'
   )
 
