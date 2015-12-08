@@ -3,10 +3,10 @@ class TopicController < ApplicationController
 
     get '/' do
       authorized?
-      redirect '/topic'
+      redirect '/home'
     end
 
-    get '/topic' do
+    get '/home' do
       authorized?
       erb :topic
     end
