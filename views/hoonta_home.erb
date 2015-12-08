@@ -1,6 +1,7 @@
 <h4 class="sub-headline">Hoonta Name here</h4>
 <%= handle_message %>
 
+<form action="/topic" method="post">
 <table class="u-full-width">
   <thead>
     <tr>
@@ -22,16 +23,17 @@
 
       </td>
       <td>
-        <form action="/hoonta/topic" method="post">
         <input class="button-primary" type="button" value="GO">
       </td>
     </tr>
   </tbody>
 </table>
+</form>
 
 <div class="">
-  <form action="/hoonta/create_topic" method="post">
+  <form action="/create_topic" method="post">
   <input class="button-primary" type="button" value="Create Topic">
+  </form>
 </div>
 
 <h5>Members</h5>
@@ -57,4 +59,5 @@
 <div class="">
   <form action="/hoonta/home" method="post">
   <input type="button" value="Delete Hoonta">
+  </form>
 </div>
