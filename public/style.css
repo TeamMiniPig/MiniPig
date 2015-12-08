@@ -42,7 +42,8 @@ header {
   text-decoration: none;
   font-size: 1.2em;
   color: #F1F9F7;
-  display: inline; }
+  display: inline;
+  margin-left: 15px; }
 
 .sub-headline {
   margin-top: 15px;

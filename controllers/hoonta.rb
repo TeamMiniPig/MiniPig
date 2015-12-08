@@ -44,8 +44,13 @@ class HoontaController < ApplicationController
                               hoonta_password: params[:hoonta_password])
       set_message 'Hoonta created.', 'success'
       user = current_user
-      redirect "/roster/create?user_id=#{user.id}&hoonta_id=#{hoonta.id}"
+      Roster.create(user_id: user.id, hoonta_id: hoonta.id)
+      redirect '/hoonta/home'
     end
+  end
+
+  get '/tmp' do
+    erb :hoonta_landing
   end
 
 end
