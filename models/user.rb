@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  belongs_to :hoonta
+  has_many :hoontas, through: :rosters
   has_many :activities
 
   include BCrypt

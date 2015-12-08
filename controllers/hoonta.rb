@@ -1,15 +1,5 @@
 class HoontaController < ApplicationController
 
-  def load_hoonta_ids
-    authorized?
-    user = current_user
-    [user.hoonta_id_1,
-     user.hoonta_id_2,
-     user.hoonta_id_3,
-     user.hoonta_id_4,
-     user.hoonta_id_5]
-  end
-
   get '/' do
     authorized?
     redirect '/hoonta/home'
@@ -54,9 +44,7 @@ class HoontaController < ApplicationController
                               hoonta_password: params[:hoonta_password])
       set_message 'Hoonta created.', 'success'
       user = current_user
-      params[:user_id] = user.id
-      params[:hoonta_id] = hoonta.id
-      redirect "/roster/create"
+      redirect "/roster/create?user_id=#{user.id}&hoonta_id=#{hoonta.id}"
     end
   end
 
