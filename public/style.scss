@@ -35,7 +35,7 @@ $purple:     #BF5059;
 $brown:      #8B4F0D;
 $white:      #F1F9F7;
 $faded-blue: rgb(164, 164, 205);
-$green: rgb(63, 166, 14);
+$green: rgb(48, 164, 0);
 $faded-green: rgb(94, 214, 37);
 $gray-green: rgb(164, 223, 136);
 
@@ -62,11 +62,12 @@ header {
   color: $sky-blue;
 }
 .slogan {
-  text-decoration: none;
+//  font-weight: bold;
+  position: absolute;
+  bottom: -1em;
+  margin-left: 15px;
   font-size: 1.2em;
   color: $white;
-  display: inline;
-  margin-left: 15px;
 }
 
 .sub-headline {
@@ -161,6 +162,29 @@ input[disabled] {
 .thin {
   margin: 0;
   padding: 0;
+}
+
+
+/* Hoonta buttons */
+.hoonta-button {
+  text-transform: lowercase;
+  letter-spacing: 0.1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: $white;
+  text-align: center;
+  hyphens: auto;
+  min-width: 170px;
+  margin: 0 12px 12px 0;
+  padding: 10px 0;
+  border-radius: 4px;
+  border: 1px solid $faded-green;
+  box-sizing: border-box;
+  background: rgba($green, .8);
+}
+.hoonta-button:hover {
+  color: $sky-blue;
+  cursor: pointer;
 }
 
 //$nav-button-color: rgb(227, 227, 226);

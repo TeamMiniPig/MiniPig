@@ -3,18 +3,23 @@
 <% @rosters = Roster.where(user_id: current_user.id) %>
 
 <% if @rosters %>
+<div class="row">
 
   <% if @rosters.kind_of?(Roster) %>
     <% hoonta = Hoonta.find(@rosters.hoonta_id) %>
-    <h5><%= hoonta.hoonta_name %></h5>
+    <div class="four columns hoonta-button u-full-width">
+      <%= hoonta.hoonta_name %>
+    </div>
+  </div>
 
-<!-- else, display them all in a nice grid -->
   <% else %>
-
     <% @rosters.each do |roster| %>
       <% hoonta = Hoonta.find(roster.hoonta_id) %>
-      <h5 class="two colummns"><%= hoonta.hoonta_name %></h5>
+      <div class="two columns hoonta-button">
+        <%= hoonta.hoonta_name %>
+      </div>
     <% end %>
+  </div>
 
   <% end %>
 
