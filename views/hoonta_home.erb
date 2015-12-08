@@ -1,24 +1,51 @@
-<h4 class="sub-headline">Make a decision, together.</h4>
+<h4 class="sub-headline">Hoonta Name here</h4>
 <%= handle_message %>
 
-<% @rosters = Roster.where(user_id: current_user.id) %>
+<table class="u-full-width">
+  <thead>
+    <tr>
+      <th>Topic</th>
+      <th>Categories</th>
+      <th>Deadline</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        Topic name
+      </td>
+      <td>
+        Categories
+      </td>
+      <td>
+        Deadline
+      </td>
+      <td>
+        GO
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-<% if @rosters %>
+Button to create topic
 
-  <% if @rosters.kind_of?(Roster) %>
-    <% hoonta = Hoonta.find(@rosters.hoonta_id) %>
-    <h5><%= hoonta.hoonta_name %></h5>
-
-  <% else %>
-
-    <% @rosters.each do |roster| %>
-      <% hoonta = Hoonta.find(roster.hoonta_id) %>
-      <h5><%= hoonta.hoonta_name %></h5>
-    <% end %>
-
-  <% end %>
-
-<% else %>
-  <h5>You don't belong to a hoonta!</h5>
-  <a href="/hoonta/create">Create</a> one to get started.
-<% end %>
+<h5>Members</h5>
+<table class="u-full-width">
+  <thead>
+    <tr>
+      <th>Member Name</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        Member Name
+      </td>
+      <td>
+        Remove
+      </td>
+    </tr>
+  </tbody>
+</table>
