@@ -70,14 +70,20 @@ header {
 
 /* Error message styling */
 .error {
+  width: 200px;
+  height: 25px;
   background: rgba(189, 72, 72, 0.63);
   border: 2px solid rgba(204, 39, 39, 0.63); }
 
 .error i:hover {
+  width: 200px;
+  height: 25px;
   color: rgba(214, 15, 15, 0.86); }
 
 /* Success message styling */
 .success {
+  width: 200px;
+  height: 25px;
   background: rgba(45, 158, 44, 0.6);
   border: 2px solid rgba(3, 98, 2, 0.6); }
 

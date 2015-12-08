@@ -3,10 +3,10 @@ class TopicController < ApplicationController
 
     get '/' do
       authorized?
-      redirect '/topic/home'
+      redirect '/topic'
     end
 
-    get '/home' do
+    get '/topic' do
       authorized?
       erb :topic
     end
@@ -17,16 +17,24 @@ class TopicController < ApplicationController
     end
     post '/create' do
       authorized?
-      
+
     end
 
     get '/delete' do
       authorized?
       erb :delete_topic
     end
-    post '/vote' do
+    post '/delete' do
       authorized?
-      redirect '/topic_vote'
+      redirect '/hoonta_home'
     end
 
+    get '/vote' do
+      authorized?
+      erb :topic
+    end
+    post '/vote' do
+      authorized?
+      redirect '/topic'
+    end
 end
