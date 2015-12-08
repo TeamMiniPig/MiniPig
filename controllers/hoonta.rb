@@ -37,10 +37,9 @@ class HoontaController < ApplicationController
 
     else
       if not params[:enable_password]
-        params[:hoonta_password] = '';
+        params[:hoonta_password] = nil;
       end
       hoonta = Hoonta.create(hoonta_name: params[:hoonta_name],
-                              has_password: params[:enable_password].nil?,
                               hoonta_password: params[:hoonta_password])
       set_message 'Hoonta created.', 'success'
       user = current_user

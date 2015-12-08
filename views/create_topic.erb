@@ -1,7 +1,7 @@
 <h4 class="sub-headline">Create a Topic</h4>
 <%= handle_message %>
 
-<form action="/create" method="post">
+<form action="/topic/create" method="post">
 
   <div class="row">
     <div class="five columns">
@@ -13,26 +13,16 @@
     <div class="five columns">
       <input required class="u-full-width text-input" type="text" name="categories" placeholder="categories">
   </div>
-
-  <div class="row">
-    <div class="five columns">
-      <input class="u-full-width text-input" id="password-input" disabled=true
-             type="text" name="hoonta_password" placeholder="Password">
-    </div>
-      <div class="checkbox-and-label-wrapper thin">
-        <input type="checkbox" name="enable_password" id="enable-password">
-        <label class="label-small" for="enable_password">Enable password</label>
-      </div>
-  </div>
+</div>
 
   <div class="row">
     <div class="five columns">
       <input class="u-full-width text-input" id="deadline-input" disabled=true
-             type="datetime" name="hoonta_password" placeholder="Deadline">
+             type="datetime-local" name="deadline" placeholder="Deadline">
     </div>
       <div class="checkbox-and-label-wrapper thin">
-        <input type="checkbox" name="enable_password" id="enable-deadline">
-        <label class="label-small" for="enable_password">Enable Deadline</label>
+        <input type="checkbox" name="enable_deadline" class="enable-field-checkbox">
+        <label class="label-small" for="enable_deadline">Enable Deadline</label>
       </div>
   </div>
 

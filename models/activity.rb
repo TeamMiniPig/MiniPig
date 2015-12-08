@@ -1,7 +1,6 @@
-class Activity < ActiveRecord::Base
+class Idea < ActiveRecord::Base
   belongs_to :user
-  has_one :caucus, through: :user
-  has_one :category
+  belongs_to :category
 
 end
 
