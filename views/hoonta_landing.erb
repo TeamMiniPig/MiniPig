@@ -10,22 +10,23 @@
 
       <% hoonta = Hoonta.find(@rosters.hoonta_id) %>
 
-      <div class="four columns hoonta-button u-full-width">
-        <%= hoonta.hoonta_name %>
-      </div>
+      <form action="/hoonta/all" method="post">
+        <div class="four columns u-full-width">
+          <input hidden type="text" name="id" value="<%=hoonta.id%>">
+          <button class="hoonta-button" type="submit"><%=hoonta.hoonta_hame%></button>
+        </div>
+      form>
 
     <% else %>
       <% @rosters.each do |roster| %>
         <% hoonta = Hoonta.find(roster.hoonta_id) %>
 
-        <div class="four columns">
-
-          <form action="/hoonta/all" method="post">
+        <form action="/hoonta/all" method="post">
+          <div class="three columns u-full-width hoonta-button" onclick="javascript:this.parentNode.submit()">
             <input hidden type="text" name="id" value="<%=hoonta.id%>">
-            <button class="hoonta-button" type="submit"><%= hoonta.hoonta_name %></button>
-          </form>
-
-        </div>
+            <%= hoonta.hoonta_name %>
+          </div>
+        </form>
 
       <% end %>
     <% end %>
