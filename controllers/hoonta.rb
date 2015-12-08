@@ -21,7 +21,8 @@ class HoontaController < ApplicationController
     clear_hoonta
     erb :hoonta_landing
   end
-  post '/all:id' do
+
+  post '/all' do
     authorized?
     set_hoonta params[:id]
     redirect '/hoonta/home'
@@ -29,10 +30,8 @@ class HoontaController < ApplicationController
 
   get '/home' do
     authorized?
-    if get_hoonta
+    if session[:hoonta]
       erb :hoonta_home
-    else
-      redirect '/hoonta/all'
     end
   end
 

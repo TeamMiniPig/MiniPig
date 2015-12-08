@@ -3,26 +3,34 @@
 <% @rosters = Roster.where(user_id: current_user.id) %>
 
 <% if @rosters %>
-  <form action="/hoonta/all" method="post">
 
-    <div class="row">
-      <% if @rosters.kind_of?(Roster) %>
-        <% hoonta = Hoonta.find(@rosters.hoonta_id) %>
-        <div class="four columns hoonta-button u-full-width">
-          <%= hoonta.hoonta_name %>
+
+  <div class="row">
+    <% if @rosters.kind_of?(Roster) %>
+
+      <% hoonta = Hoonta.find(@rosters.hoonta_id) %>
+
+      <div class="four columns hoonta-button u-full-width">
+        <%= hoonta.hoonta_name %>
+      </div>
+
+    <% else %>
+      <% @rosters.each do |roster| %>
+        <% hoonta = Hoonta.find(roster.hoonta_id) %>
+
+        <div class="four columns">
+
+          <form action="/hoonta/all" method="post">
+            <input hidden type="text" name="id" value="<%=hoonta.id%>">
+            <button class="hoonta-button" type="submit"><%= hoonta.hoonta_name %></button>
+          </form>
+
         </div>
 
-      <% else %>
-        <% @rosters.each do |roster| %>
-          <% hoonta = Hoonta.find(roster.hoonta_id) %>
-          <div class="four columns hoonta-button u-full-width">
-            <input hidden type="text" name="id" value="<%=hoonta.id%>">
-            <input type="submit" value="<%= hoonta.hoonta_name %>">
-          </div>
-        <% end %>
       <% end %>
-    </div>
-  </form>
+    <% end %>
+  </div>
+
 
 <% else %>
   <h5>You don't belong to a hoonta!</h5>
