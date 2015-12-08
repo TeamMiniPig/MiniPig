@@ -15,6 +15,10 @@ class TopicController < ApplicationController
       authorized?
       erb :create_topic
     end
+    post '/create' do
+      authorized?
+      
+    end
 
     get '/delete' do
       authorized?
