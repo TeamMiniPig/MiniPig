@@ -1,5 +1,10 @@
+<h4 class="sub-headline">Make a decision, together.</h4>
 <%= handle_message %>
-<h4 class="sub-headline">Make a decision together.</h4>
+<% @hoonta_ids = load_hoonta_ids %>
 
-<% @hoonta = Hoonta.find(session[:current_user].hoonta_id) %>
-<h5><%= @hoonta.hoonta_name %></h5>
+<% @hoonta_ids.each do |id| %>
+  <% if id %>
+    <% hoonta = Hoonta.find(id) %>
+    <h5><%= hoonta.hoonta_name if hoonta %></h5>
+  <% end %>
+<% end %>

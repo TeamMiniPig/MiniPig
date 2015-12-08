@@ -16,7 +16,6 @@ class UserController < ApplicationController
     if session[:current_user] == nil
       redirect '/welcome'
     else
-      p session[:current_user]
       redirect '/home'
     end
   end
@@ -28,6 +27,7 @@ class UserController < ApplicationController
 
                                                   # GET '/home'
   get '/home' do
+    authorized?
     erb :user_home
   end
 
@@ -41,7 +41,7 @@ class UserController < ApplicationController
     user = User.authenticate params[:user_name], params[:password]
 
     if user
-      session[:current_user] = user
+      session[:current_user] = user.id
       set_message "Logged in.", "success"
       redirect '/'
     else
@@ -84,9 +84,9 @@ class UserController < ApplicationController
     # If they make it this far, they can register!
     else
       new_user = User.create(user)
-      session[:current_user] = new_user
+      session[:current_user] = new_user.id
       set_message "Account created.", "success"
-      redirect '/'
+      redirect '/home'
 
     end
 

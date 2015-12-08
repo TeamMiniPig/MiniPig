@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
     BCrypt::Password.new(self.password_digest)
   end
 
+  
+
   def self.authenticate user_name, password
     current_user = User.find_by(user_name: user_name)
     if current_user and current_user.password == password
@@ -20,6 +22,7 @@ class User < ActiveRecord::Base
       nil
     end
   end
+
 end
 
 # users:

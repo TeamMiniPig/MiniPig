@@ -40,9 +40,7 @@
             <% else %>
               <li><a href="#">hoonta</a>
                 <ul>
-                  <% if session[:current_user].hoonta_id %>
-                  <li><a href="/hoonta/home">my hoonta</a></li>
-                  <% end %>
+                  <li><a href="/hoonta/home">home</a></li>
                   <li><a href="/hoonta/join">join</a></li>
                   <li><a href="/hoonta/create">create</a></li>
                 </ul>
@@ -62,7 +60,7 @@
 
     <div class="container">
       <div class="row">
-        <a class="headline" href="/">Hoonta!</a>
+        <a class="headline" href="/">Hoonta</a>
       </div>
     </div>
   </header>

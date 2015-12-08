@@ -27,21 +27,25 @@ class ApplicationController < Sinatra::Base
 
   end
 
+  def current_user
+    User.find(session[:current_user])
+  end
+
                                                   # handle session messages
+                                                  # style = "success" or "error"
   def set_message message, style
     session[:message] = "
     <div class='row message-wrapper #{style}'>
       <div class=message>#{message}</div>
-      <div class=close><i class=material-icons>clear</i></div>
+      <div class=close><i class='material-icons'>clear</i></div>
     </div>"
   end
-  def clear_message
-    session[:message] = nil
-  end
+
+                                                    # call in views
   def handle_message
     if session[:message]
       m = session[:message]
-      clear_message
+      session[:message] = nil
       m
     else
       ""

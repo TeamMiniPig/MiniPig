@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151206020618) do
+ActiveRecord::Schema.define(version: 20151208153649) do
 
   create_table "activities", force: :cascade do |t|
     t.string  "activity_name",        limit: 255
@@ -34,11 +34,16 @@ ActiveRecord::Schema.define(version: 20151206020618) do
     t.string  "hoonta_password", limit: 255
   end
 
+  create_table "rosters", force: :cascade do |t|
+    t.integer "user_id",   limit: 4
+    t.integer "hoonta_id", limit: 4
+  end
+
   create_table "users", force: :cascade do |t|
-    t.string  "user_name",       limit: 255
-    t.string  "email",           limit: 255
-    t.string  "password_digest", limit: 255
-    t.integer "hoonta_id",       limit: 4
+    t.string "user_name",       limit: 255
+    t.string "display_name",    limit: 255
+    t.string "email",           limit: 255
+    t.string "password_digest", limit: 255
   end
 
 end
