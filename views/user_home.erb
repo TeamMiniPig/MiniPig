@@ -1,4 +1,4 @@
-<h4 class="sub-headline">Your Account</h4>
+<h4 class="sub-headline">YOUR ACCOUNT</h4>
 <%= handle_message %>
 
 <h5>Huntas needing your input</h5>
@@ -8,19 +8,24 @@
     <tr>
       <th>Hoonta</th>
       <th>Topic</th>
-      <th>Decide</th>
+      <th>Deadline</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>
-        Hoonta name
-      </td>
-      <td>
-        Topic Name
+
       </td>
       <td>
 
+      </td>
+      <td>
+
+      </td>
+      <td>
+        <form action="/hoonta/topic" method="post">
+        <input class="button-primary" type="button" value="GO">
       </td>
     </tr>
   </tbody>
@@ -32,7 +37,8 @@
 <table class="u-full-width">
   <thead>
     <tr>
-      <th>Hoonta</th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -40,6 +46,13 @@
       <td>
         Hoonta Name
       </td>
+      <td>
+        <form action="/hoonta/home" method="post">
+        <input class="button-primary" type="button" value="GO">
+      </td>
     </tr>
   </tbody>
 </table>
+<div class="">
+  <input class="button-primary" type="button" value="Create Hoonta">
+</div>

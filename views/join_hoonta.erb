@@ -1,0 +1,30 @@
+<h4 class="sub-headline">JOIN A HOONTA</h4>
+<%= handle_message %>
+
+<h5>Hoonta Invitations</h5>
+
+<table class="u-full-width">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+      </td>
+      <td>
+        <form action="/hoonta/home" method="post">
+        <input class="button-primary" type="button" value="JOIN">
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h5>Find a Hoonta</h5>
+
+<form action="/hoonta/find_results" method="post">
+  <input type="text" name="Hoonta Name" placeholder="name of Hoonta">
+  <input class="button-primary" type="button" value="FIND">
+</form>

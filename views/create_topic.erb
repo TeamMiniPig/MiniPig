@@ -1,0 +1,40 @@
+<h4 class="sub-headline">Create a Topic</h4>
+<%= handle_message %>
+
+<form action="/hoonta/create_topic" method="post">
+
+  <div class="row">
+    <div class="five columns">
+      <input required class="u-full-width text-input" type="text" name="topic_name" placeholder="Topic Name">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="five columns">
+      <input required class="u-full-width text-input" type="text" name="categories" placeholder="categories">
+  </div>
+
+  <div class="row">
+    <div class="five columns">
+      <input class="u-full-width text-input" id="password-input" disabled=true
+             type="text" name="hoonta_password" placeholder="Password">
+    </div>
+      <div class="checkbox-and-label-wrapper thin">
+        <input type="checkbox" name="enable_password" id="enable-password">
+        <label class="label-small" for="enable_password">Enable password</label>
+      </div>
+  </div>
+
+  <div class="row">
+    <div class="five columns">
+      <input class="u-full-width text-input" id="deadline-input" disabled=true
+             type="datetime" name="hoonta_password" placeholder="Deadline">
+    </div>
+      <div class="checkbox-and-label-wrapper thin">
+        <input type="checkbox" name="enable_password" id="enable-deadline">
+        <label class="label-small" for="enable_password">Enable Deadline</label>
+      </div>
+  </div>
+
+  <button class="button-primary" type="submit">create</button>
+</form>

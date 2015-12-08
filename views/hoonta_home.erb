@@ -4,7 +4,7 @@
 <table class="u-full-width">
   <thead>
     <tr>
-      <th>Topic</th>
+      <th>Topics</th>
       <th>Categories</th>
       <th>Deadline</th>
       <th></th>
@@ -13,39 +13,48 @@
   <tbody>
     <tr>
       <td>
-        Topic name
+
       </td>
       <td>
-        Categories
+
       </td>
       <td>
-        Deadline
+
       </td>
       <td>
-        GO
+        <form action="/hoonta/topic" method="post">
+        <input class="button-primary" type="button" value="GO">
       </td>
     </tr>
   </tbody>
 </table>
 
-Button to create topic
+<div class="">
+  <form action="/hoonta/create_topic" method="post">
+  <input class="button-primary" type="button" value="Create Topic">
+</div>
 
 <h5>Members</h5>
 <table class="u-full-width">
   <thead>
     <tr>
-      <th>Member Name</th>
+      <th></th>
       <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>
-        Member Name
+
       </td>
       <td>
-        Remove
+        <input type="button" value="Remove">
       </td>
     </tr>
   </tbody>
 </table>
+
+<div class="">
+  <form action="/hoonta/home" method="post">
+  <input type="button" value="Delete Hoonta">
+</div>
