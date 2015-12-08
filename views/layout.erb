@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/style.css">
 
     <!-- JS -->
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js">
     </script>
     <script src="/app.js"></script>
 
@@ -18,22 +18,23 @@
 
 
   <body>
-    <header>
-                                                      <!-- Navigation -->
-    <div class="navbar">
+    <header>  <!-- Navigation -->
 
-      <nav class="container">
+      <div class="navbar">
 
-        <div class="twelve columns">
+        <nav class="container">
 
-          <ul>
+          <div class="twelve columns">
 
-            <li><a href="/">home</a></li>
+            <ul>
 
-            <!-- Show these two tabs if no one is logged in -->
-            <% if session[:current_user] == nil %>
-              <li><a href="/login">login</a></li>
-              <li><a href="/register">register</a></li>
+              <li><a href="/">home</a></li>
+              <!-- Show these two tabs if no one is logged in -->
+
+              <% if session[:current_user] == nil %>
+
+                <li><a href="/login">login</a></li>
+                <li><a href="/register">register</a></li>
 
 
             <!-- Registered user tabs -->

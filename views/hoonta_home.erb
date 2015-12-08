@@ -1,6 +1,6 @@
 <h4 class="sub-headline">Make a decision, together.</h4>
 <%= handle_message %>
-<% @hoonta_ids = load_hoonta_ids %>
+<% @hoonta_ids = Roster.find_by(user_id: current_user.id) %>
 
 <% @hoonta_ids.each do |id| %>
   <% if id %>
