@@ -8,6 +8,6 @@ gem 'activerecord'
 gem 'rake'
 gem 'bcrypt'
 gem 'pg'
-
+gem 'env'
 gem 'json'
 #gem 'faker'
