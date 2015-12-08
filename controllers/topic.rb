@@ -3,7 +3,7 @@ class TopicController < ApplicationController
 
     get '/' do
       authorized?
-      redirect '/home'
+      redirect '/topic/home'
     end
 
     get '/home' do
