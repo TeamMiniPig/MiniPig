@@ -1,0 +1,24 @@
+<h4 class="sub-headline">Your Hoontas</h4>
+
+<% @rosters = Roster.where(user_id: current_user.id) %>
+
+<% if @rosters %>
+
+  <% if @rosters.kind_of?(Roster) %>
+    <% hoonta = Hoonta.find(@rosters.hoonta_id) %>
+    <h5><%= hoonta.hoonta_name %></h5>
+
+<!-- else, display them all in a nice grid -->
+  <% else %>
+
+    <% @rosters.each do |roster| %>
+      <% hoonta = Hoonta.find(roster.hoonta_id) %>
+      <h5 class="two colummns"><%= hoonta.hoonta_name %></h5>
+    <% end %>
+
+  <% end %>
+
+<% else %>
+  <h5>You don't belong to a hoonta!</h5>
+  <a href="/hoonta/create">Create</a> one to get started.
+<% end %>

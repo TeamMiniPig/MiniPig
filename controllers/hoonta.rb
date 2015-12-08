@@ -49,4 +49,8 @@ class HoontaController < ApplicationController
     end
   end
 
+  get '/tmp' do
+    erb :hoonta_landing
+  end
+
 end
