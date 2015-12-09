@@ -45,6 +45,27 @@ header {
   font-size: 1.2em;
   color: #fffcf1; }
 
+/* sits above a flat-sub-headline */
+.previous-page {
+  margin: 10px 0 0 -10px;
+  padding: 0; }
+
+.previous-page-link {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: .9em;
+  letter-spacing: 0.1em;
+  color: darkgray;
+  font-weight: bold; }
+
+.previous-page-link:hover {
+  color: #99dba0; }
+
+.flat-sub-headline {
+  margin-top: 0px;
+  color: #00A513; }
+
+/* use when you don't want a previous-page link */
 .sub-headline {
   margin-top: 15px;
   color: #00A513; }
@@ -186,7 +207,7 @@ input[disabled] {
   background: #00A513; }
 
 .hoonta-button:hover {
-  color: #33c3f0;
+  color: #ade7f9;
   cursor: pointer; }
 
 /* Navigation */
@@ -213,7 +234,7 @@ nav ul li a {
   letter-spacing: 0.03em; }
 
 nav ul li a:hover {
-  color: #33c3f0;
+  color: #ade7f9;
   cursor: pointer; }
 
 /* Drop-Down */
@@ -258,7 +279,7 @@ nav ul ul li a {
 
 /* drop-down button when hovering on link child */
 nav ul ul li:hover > a {
-  color: #33c3f0;
+  color: #ade7f9;
   background: #643A9A; }
 
 footer {
@@ -275,7 +296,7 @@ footer ul li {
   margin: 0;
   position: relative; }
 
-footer ul li a {
+.footer-link {
   display: inline-block;
   margin: 5px;
   text-transform: uppercase;
@@ -284,7 +305,7 @@ footer ul li a {
   text-decoration: none;
   color: darkgrey; }
 
-footer ul li a :hover {
-  color: #33c3f0; }
+.footer-link:hover {
+  color: black; }
 
 /*# sourceMappingURL=style.css.map */

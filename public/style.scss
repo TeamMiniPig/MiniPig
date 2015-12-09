@@ -76,7 +76,28 @@ header {
   font-size: 1.2em;
   color: $white;
 }
+/* sits above a flat-sub-headline */
+.previous-page {
+  margin: 10px 0 0 -10px;
+  padding: 0;
+}
+.previous-page-link {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: .9em;
+  letter-spacing: 0.1em;
+  color: darkgray;
+  font-weight: bold;
+}
+.previous-page-link:hover {
+  color: $gray-green;
+}
+.flat-sub-headline {
+  margin-top: 0px;
+  color: $green;
+}
 
+/* use when you don't want a previous-page link */
 .sub-headline {
   margin-top: 15px;
   color: $green;
@@ -237,13 +258,13 @@ input[disabled] {
   background: $green;
 }
 .hoonta-button:hover {
-  color: $sky-blue;
+  color: $blue;
   cursor: pointer;
 }
 
 //$nav-button-color: rgb(227, 227, 226);
 $nav-button-color: $red;
-$nav-button-hover-color: $sky-blue;
+$nav-button-hover-color: $blue;
 $nav-dropdown-button-color: $purple;
 
 // extra menus- purple!
@@ -329,7 +350,7 @@ nav ul ul li a {
 /* drop-down button when hovering on link child */
 nav ul ul li:hover > a {
 //	background: $nav-button-hover-color;
-	color: $sky-blue;
+	color: $nav-button-hover-color;
   background: $nav-dropdown-button-color;
 }
 
@@ -350,7 +371,7 @@ footer ul li {
   position: relative;
 }
 
-footer ul li a {
+.footer-link {
   display: inline-block;
   margin: 5px;
   text-transform: uppercase;
@@ -359,6 +380,7 @@ footer ul li a {
   text-decoration: none;
   color: darkgrey;
 }
-footer ul li a :hover {
-  color: $sky-blue;
+
+.footer-link:hover {
+  color: black;
 }

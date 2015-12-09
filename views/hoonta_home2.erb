@@ -3,6 +3,7 @@
 <% if rosters.kind_of?(Roster) %>
   rosters = [User.find(rosters.user_id)]
 <% end %>
+
 <h4 class="sub-headline"><%=@hoonta.hoonta_name%></h4>
 <%= handle_message %>
 <div class="row">
