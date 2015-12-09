@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20151208211950) do
     t.string  "idea_description", limit: 255
     t.integer "user_id",          limit: 4
     t.integer "category_id",      limit: 4
+    t.integer "hoonta_id",        limit: 4
   end
 
   create_table "rosters", force: :cascade do |t|

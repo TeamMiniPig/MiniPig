@@ -16,6 +16,24 @@
       <h5>Deadline</h5>
     </div>
   </div>
+
+  <% @topics = Topic.where(hoonta_id: @hoonta.id) %>
+  <% if not @topics.empty? %>
+    <% @topics.each do |topic| %>
+      <% category = Category.find(topic.category_id).category_name %>
+      <div class="row">
+        <div class="four columns u-full-width">
+          <h5><%= topic.topic_name %></h5>
+        </div>
+        <div class="four columns u-full-width">
+          <h5><%= category %></h5>
+        </div>
+        <div class="four columns u-full-width">
+          <h5><%= topic.deadline %></h5>
+        </div>
+      </div>
+  <a href="/topic/create">Create a topic</a>
+
   <div class="row">
     <div class="twelve columns u-full-width">
       <h5>Members</h5>

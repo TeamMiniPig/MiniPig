@@ -3,9 +3,6 @@ class HoontaController < ApplicationController
   def set_hoonta hoonta_id
     session[:hoonta] = hoonta_id
   end
-  def get_hoonta
-    Hoonta.find(session[:hoonta])
-  end
   def clear_hoonta
     session[:hoonta] = nil
   end
@@ -42,8 +39,29 @@ class HoontaController < ApplicationController
   post '/join' do
     authorized?
     user = current_user
-    user.hoonta_id = params[:hoonta_id]
-    redirect '/hoonta/home'
+    hoonta_name = params[:hoonta_name]
+
+    if hoonta_name
+      hoonta_name = hoonta_name.downcase
+      hoonta = Hoonta.find_by(hoonta_name: hoonta_name)
+
+      if hoonta
+        if Roster.find_by(user_id: user.id, hoonta_id: hoonta.id)
+          set_message "You're already in that Hoonta.", "error"
+          redirect '/home'
+
+        else
+          Roster.create(user_id: user.id, hoonta_id: hoonta.id)
+          set_message "Hoonta joined.", "success"
+          set_hoonta hoonta.id
+          redirect '/hoonta/home'
+        end
+
+      else
+        set_message "No matches.", "error"
+      end
+
+    end
   end
 
   get '/create' do
@@ -52,14 +70,18 @@ class HoontaController < ApplicationController
   end
   post '/create' do
     authorized?
+
+    # Catch invalid name
     if params[:hoonta_name].length < 3
       set_message "Hoonta name must be three or more characters long.", 'error'
       redirect '/hoonta/create'
 
+    # Catch invalid password
     elsif params[:enable_password] and params[:hoonta_password].length < 4
       set_message 'Password must be four or more characters long.', 'error'
       redirect '/hoonta/create'
 
+    # Otherwise they're good to go
     else
       if not params[:enable_password]
         params[:hoonta_password] = nil;

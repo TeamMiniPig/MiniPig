@@ -17,6 +17,23 @@ class TopicController < ApplicationController
     end
     post '/create' do
       authorized?
+      topic = params[:topic]
+      if Topic.find_by(topic_name: topic[:topic_name])
+        set_message "Topic already exists.", "error"
+        redirect '/hoonta/home'
+      else
+        category = Category.find_by(category_name: topic[:category])
+        if not category
+          category = Category.create(category_name: topic[:category])
+        end
+        new_topic = Topic.create(topic_name: topic[:topic_name],
+                                   category_id: category.id,
+                                   deadline: topic[:deadline],
+                                   hoonta_id: get_hoonta.id)
+        set_message "Topic created.", "success"
+        redirect '/hoonta/home'
+
+      end
 
     end
 

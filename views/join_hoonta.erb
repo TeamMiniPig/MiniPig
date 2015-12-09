@@ -1,6 +1,8 @@
 <h4 class="sub-headline">JOIN A HOONTA</h4>
 <%= handle_message %>
 
+
+<!-- TODO
 <h5>Hoonta Invitations</h5>
 
 <form action="/hoonta/home" method="post">
@@ -22,9 +24,10 @@
   </tbody>
 </table>
 </form>
+-->
 
 <h5>Find a Hoonta</h5>
-<form action="/hoonta/find_results" method="post">
-  <input type="text" name="Hoonta Name" placeholder="name of Hoonta">
-  <input class="button-primary" type="button" value="FIND">
+<form action="/hoonta/join" method="post">
+  <input required type="text" name="hoonta_name" placeholder="name of Hoonta">
+  <input class="button-primary" type="submit" value="find">
 </form>

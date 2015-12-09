@@ -30,6 +30,9 @@ class ApplicationController < Sinatra::Base
   def current_user
     User.find(session[:current_user])
   end
+  def get_hoonta
+    Hoonta.find(session[:hoonta])
+  end
 
                                                   # handle session messages
                                                   # style = "success" or "error"

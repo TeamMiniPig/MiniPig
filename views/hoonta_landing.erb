@@ -2,7 +2,7 @@
 
 <% @rosters = Roster.where(user_id: current_user.id) %>
 
-<% if @rosters %>
+<% if not @rosters.empty? %>
 
 
   <div class="row">

@@ -5,20 +5,22 @@
 
   <div class="row">
     <div class="five columns">
-      <input required class="u-full-width text-input" type="text" name="topic_name" placeholder="Topic Name">
+      <input required class="u-full-width text-input" type="text"
+             name="topic[topic_name]" placeholder="Topic Name">
     </div>
   </div>
 
   <div class="row">
     <div class="five columns">
-      <input required class="u-full-width text-input" type="text" name="categories" placeholder="categories">
+      <input required class="u-full-width text-input" type="text"
+             name="topic[category]" placeholder="category">
   </div>
 </div>
 
   <div class="row">
     <div class="five columns">
-      <input class="u-full-width text-input" id="deadline-input" disabled=true
-             type="datetime-local" name="deadline" placeholder="Deadline">
+      <input class="u-full-width text-input" disabled=true
+             type="datetime-local" name="topic[deadline]" placeholder="Deadline">
     </div>
       <div class="checkbox-and-label-wrapper thin">
         <input type="checkbox" name="enable_deadline" class="enable-field-checkbox">
