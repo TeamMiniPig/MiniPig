@@ -28,7 +28,7 @@ html, body {
 
 header {
   background: #9C0000;
-  border-bottom: 3px solid #ade7f9; }
+  border-bottom: 3px solid #7ad8f5; }
 
 .headline {
   text-decoration: none;
@@ -36,7 +36,7 @@ header {
   color: #fffcf1; }
 
 .headline:hover {
-  color: #ade7f9; }
+  color: #7ad8f5; }
 
 .slogan {
   position: absolute;
@@ -54,23 +54,23 @@ header {
   font-size: 1.1em;
   padding: 7px 7px 2px 7px;
   margin: 5px;
-  border-bottom: 2px solid rgba(0, 216, 25, 0.5);
-  border-left: 2px solid rgba(0, 216, 25, 0.5);
-  border-top: 1px solid rgba(0, 216, 25, 0.5);
-  border-right: 1px solid rgba(0, 216, 25, 0.5);
-  background: rgba(0, 216, 25, 0.2);
+  border-bottom: 2px solid rgba(0, 191, 22, 0.5);
+  border-left: 2px solid rgba(0, 191, 22, 0.5);
+  border-top: 1px solid rgba(0, 191, 22, 0.5);
+  border-right: 1px solid rgba(0, 191, 22, 0.5);
+  background: rgba(0, 191, 22, 0.2);
   border-radius: 4px;
   text-transform: uppercase;
   font-weight: bold; }
 
 .topic-row:hover {
-  background-color: rgba(0, 216, 25, 0.5);
+  background-color: rgba(0, 191, 22, 0.5);
   border-color: rgba(0, 165, 19, 0.5);
   color: #643A9A;
   cursor: pointer; }
 
 .user-box {
-  background: #00d819;
+  background: #00bf16;
   text-transform: uppercase;
   font-weight: bold;
   color: #fffcf1;
@@ -133,7 +133,7 @@ header {
 
 /* Form inputs */
 .text-input {
-  border: 1px solid #00d819; }
+  border: 1px solid #00bf16; }
 
 .text-input:not(:focus) {
   border: 1px solid #99dba0; }

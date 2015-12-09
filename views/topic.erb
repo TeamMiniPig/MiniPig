@@ -4,35 +4,51 @@
 <h4 class="sub-headline"><%= @topic.topic_name %></h4>
 <%= handle_message %>
 
-<% if not @topic.deadline.nil? %>
-  <div class="thin row">
-    <h6 class="thin">Deadline: <%= @topic.deadline %></h6>
+<div class="row">
+
+  <div class="four columns u-full-width">
+    <h5>Idea</h5>
   </div>
+  <div class="four columns u-full-width">
+    <h5>Description</h5>
+  </div>
+  <div class="four columns u-full-width">
+    <h5>Votes</h5>
+  </div>
+
+  <div class="four columns u-full-width">
+    <h5></h5>
+  </div>
+
+</div>
+
+<% @ideas = Idea.where(topic_id: @topic.id) %>
+<% if not @ideas.empty? %>
+  <% @ideas.each do |idea| %>
+    <% votes = User.where(category_id: @topic.category_id, hoonta_id: @hoonta.id)%>
+    <form action="/topic" method="get" class="thin">
+      <input hidden type="text" name="id" value="<%= idea.id %>">
+      <div class="row topic-row" onclick="javascript:this.parentNode.submit()">
+        <div class="four columns u-full-width">
+          <%= idea.idea_name %>
+        </div>
+        <div class="four columns u-full-width">
+          <%= idea.idea_description %>
+        </div>
+        <div class="four columns u-full-width">
+          <%= idea.votes %>
+        </div>
+      </div>
+    </form>
+    <% end %>
 <% end %>
 
-<table class="u-full-width">
-  <thead>
-    <tr>
-      <th>Idea</th>
-      <th>Deadline</th>
-      <th>Number of votes</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-      </td>
-      <td>
-      </td>
-      <td>
-      </td>
-      <td>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<form action="/hoonta/join" method="post">
+  <input required type="text" name="idea_name" placeholder="idea">
+  <input class="button-primary" type="submit" value="ADD IDEA">
+</form>
 
 <div class="">
-  <form action="/hoonta/join_hoonta" method="post">
+  <form action="/hoonta/hoonta_home2" method="post">
   <input type="button" value="Delete/End Topic"></form>
 </div>
