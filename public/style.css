@@ -121,7 +121,8 @@ header {
 
 /* Error message styling */
 .error {
-  width: 200px;
+  min-width: 200px;
+  max-width: 350px;
   height: 25px;
   background: #ff4000;
   border: 2px solid #e53900; }
@@ -131,7 +132,8 @@ header {
 
 /* Success message styling */
 .success {
-  width: 200px;
+  min-width: 200px;
+  max-width: 350px;
   height: 25px;
   background: #643a9a;
   border: 2px solid #5a348a; }
@@ -207,7 +209,7 @@ input[disabled] {
   background: #00A513; }
 
 .hoonta-button:hover {
-  color: #ade7f9;
+  color: #7ad8f5;
   cursor: pointer; }
 
 /* Navigation */
@@ -234,7 +236,7 @@ nav ul li a {
   letter-spacing: 0.03em; }
 
 nav ul li a:hover {
-  color: #ade7f9;
+  color: #7ad8f5;
   cursor: pointer; }
 
 /* Drop-Down */
@@ -279,7 +281,7 @@ nav ul ul li a {
 
 /* drop-down button when hovering on link child */
 nav ul ul li:hover > a {
-  color: #ade7f9;
+  color: #7ad8f5;
   background: #643A9A; }
 
 footer {
