@@ -43,7 +43,8 @@ header {
   bottom: -1em;
   margin-left: 15px;
   font-size: 1.2em;
-  color: #fffcf1; }
+  color: #fffcf1;
+  font-weight: bold; }
 
 /* sits above a flat-sub-headline */
 .previous-page {
@@ -68,7 +69,8 @@ header {
 /* use when you don't want a previous-page link */
 .sub-headline {
   margin-top: 15px;
-  color: #00A513; }
+  color: #00A513;
+  font-weight: bold; }
 
 .topic-row {
   margin-left: 10px;
