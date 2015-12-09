@@ -1,7 +1,10 @@
 <% @topic = Topic.find(session[:topic]) %>
 <% @hoonta = Hoonta.find(session[:hoonta]) %>
-<h6><%= "#{@hoonta.hoonta_name}: " %></h6>
-<h4 class="sub-headline"><%= @topic.topic_name %></h4>
+<div class="previous-page">
+  <a href="/hoonta/home" class="previous-page-link"> <%= "#{@hoonta.hoonta_name}" %></a>
+</div>
+
+<h4 class="flat-sub-headline"><%= @topic.topic_name %></h4>
 <%= handle_message %>
 
 <% if not @topic.deadline.nil? %>

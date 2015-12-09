@@ -7,8 +7,8 @@ class CreateIdeas < ActiveRecord::Migration
       t.string :idea_description
 
       t.integer :user_id
-      t.integer :category_id
-      t.integer :hoonta_id
+      t.integer :topic_id
+      t.integer :votes
 
     end
   end
