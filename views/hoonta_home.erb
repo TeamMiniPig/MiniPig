@@ -1,4 +1,9 @@
-<h4 class="sub-headline">Hoonta Name here</h4>
+<% @hoonta = get_hoonta %>
+<% members = Roster.where(hoonta_id: @hoonta.id) %>
+<% if members.kind_of?(Roster) %>
+  members = [members]
+<% end %>
+<h4 class="sub-headline"><%=@hoonta.hoonta_name%></h4>
 <%= handle_message %>
 
 <form action="/topic/create" method="post">

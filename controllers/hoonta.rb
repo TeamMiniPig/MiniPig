@@ -31,7 +31,7 @@ class HoontaController < ApplicationController
   get '/home' do
     authorized?
     if session[:hoonta]
-      erb :hoonta_home
+      erb :hoonta_home2
     end
   end
 

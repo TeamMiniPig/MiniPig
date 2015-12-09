@@ -1,0 +1,27 @@
+<% @hoonta = get_hoonta %>
+<% rosters = Roster.where(hoonta_id: @hoonta.id) %>
+<% if rosters.kind_of?(Roster) %>
+  rosters = [User.find(rosters.user_id)]
+<% end %>
+<h4 class="sub-headline"><%=@hoonta.hoonta_name%></h4>
+<%= handle_message %>
+  <div class="row">
+    <div class="four columns u-full-width">
+      <h5>Topic</h5>
+    </div>
+    <div class="four columns u-full-width">
+      <h5>Categories</h5>
+    </div>
+    <div class="four columns u-full-width">
+      <h5>Deadline</h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="twelve columns u-full-width">
+      <h5>Members</h5>
+      <% rosters.each do |roster| %>
+        User: <%= User.find(roster.user_id).user_name %>
+      <% end %>
+    </div>
+  </div>
+</div>
