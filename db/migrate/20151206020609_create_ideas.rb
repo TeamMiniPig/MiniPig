@@ -4,8 +4,6 @@ class CreateIdeas < ActiveRecord::Migration
     create_table :ideas do |t|
 
       t.string :idea_name
-      t.string :idea_description
-      t.integer :votes
 
       t.integer :user_id
       t.integer :topic_id

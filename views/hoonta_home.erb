@@ -1,68 +1,48 @@
 <% @hoonta = get_hoonta %>
-<% members = Roster.where(hoonta_id: @hoonta.id) %>
-<% if members.kind_of?(Roster) %>
-  members = [members]
+<% rosters = Roster.where(hoonta_id: @hoonta.id) %>
+<% if rosters.kind_of?(Roster) %>
+  rosters = [User.find(rosters.user_id)]
 <% end %>
+
 <h4 class="sub-headline"><%=@hoonta.hoonta_name%></h4>
 <%= handle_message %>
+<div class="row">
+  <div class="four columns u-full-width">
+    <h5>Topic</h5>
+  </div>
+  <div class="four columns u-full-width">
+    <h5>Deadline</h5>
+  </div>
+</div>
 
-<form action="/topic/create" method="post">
-<table class="u-full-width">
-  <thead>
-    <tr>
-      <th>Topics</th>
-      <th>Categories</th>
-      <th>Deadline</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
+<% @topics = Topic.where(hoonta_id: @hoonta.id) %>
+<% if not @topics.empty? %>
+  <% @topics.each do |topic| %>
+  <div class="row">
+    <form action="/topic" method="get" class="thin">
+      <input hidden type="text" name="id" value="<%= topic.id %>">
+      <div class="eight columns topic-row" onclick="javascript:this.parentNode.submit()">
+        <div class="four columns u-full-width">
+          <%= topic.topic_name %>
+        </div>
+        <div class="four columns u-full-width">
+          <%= topic.deadline %>
+        </div>
+      </div>
+    </form>
+  </div>
+    <% end %>
+<% end %>
 
-      </td>
-      <td>
-
-      </td>
-      <td>
-
-      </td>
-      <td>
-        <input class="button-primary" type="button" value="GO">
-      </td>
-    </tr>
-  </tbody>
-</table>
-</form>
-
-<div class="">
-  <form action="/topic/create" method="post">
-  <input class="button-primary" type="button" value="Create Topic">
-  </form>
+<div class="roomy row">
+  <a href="/topic/create">Create a topic</a>
 </div>
 
 <h5>Members</h5>
-<table class="u-full-width">
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-
-      </td>
-      <td>
-        <input type="button" value="Remove">
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-<div class="">
-  <form action="/hoonta/home" method="post">
-  <input type="button" value="Delete Hoonta">
-  </form>
+<div class="row">
+  <% rosters.each do |roster| %>
+    <div class="two columns user-box roomy">
+      <%= User.find(roster.user_id).user_name %>
+    </div>
+  <% end %>
 </div>

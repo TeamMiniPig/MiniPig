@@ -1,4 +1,4 @@
-<% @topic = Topic.find(session[:topic]) %>
+<% @topic = get_topic %>
 <% @hoonta = Hoonta.find(session[:hoonta]) %>
 <div class="previous-page">
   <a href="/hoonta/home" class="previous-page-link"> <%= "#{@hoonta.hoonta_name}" %></a>
@@ -9,49 +9,49 @@
 
 <div class="row">
 
-  <div class="four columns u-full-width">
+  <div class="ten columns u-full-width">
     <h5>Idea</h5>
   </div>
-  <div class="four columns u-full-width">
-    <h5>Description</h5>
-  </div>
-  <div class="four columns u-full-width">
+  <div class="two columns vote-tally">
     <h5>Votes</h5>
   </div>
 
-  <div class="four columns u-full-width">
-    <h5></h5>
-  </div>
-
 </div>
-
 <% @ideas = Idea.where(topic_id: @topic.id) %>
 <% if not @ideas.empty? %>
+<div class="row">
   <% @ideas.each do |idea| %>
-    <% votes = User.where(category_id: @topic.category_id, hoonta_id: @hoonta.id)%>
-    <form action="/topic" method="get" class="thin">
-      <input hidden type="text" name="id" value="<%= idea.id %>">
+    <form action="/vote" method="post" class="thin">
+
+      <input hidden type="text" name="idea_id"  value="<%= idea.id %>">
+      <input hidden type="text" name="user_id"  value="<%= current_user.id %>">
+      <input hidden type="text" name="topic_id" value="<%= @topic.id %>">
+
       <div class="row topic-row" onclick="javascript:this.parentNode.submit()">
-        <div class="four columns u-full-width">
+
+        <div class="eleven columns u-full-width">
           <%= idea.idea_name %>
         </div>
-        <div class="four columns u-full-width">
-          <%= idea.idea_description %>
+
+        <div class="one columns vote-tally">
+          <%= Vote.where(idea_id: idea.id).length %>
         </div>
-        <div class="four columns u-full-width">
-          <%= idea.votes %>
-        </div>
+
       </div>
     </form>
     <% end %>
+  </div>
 <% end %>
 
-<form action="/hoonta/join" method="post">
-  <input required type="text" name="idea_name" placeholder="idea">
-  <input class="button-primary" type="submit" value="ADD IDEA">
-</form>
+<div class="roomy row">
+  <form action="/idea" method="post">
+    <input required type="text" name="idea_name" placeholder="idea">
+    <input   hidden type="text" name="user_id"   value="<%= current_user.id %>">
+    <input   hidden type="text" name="topic_id"  value="<%= @topic.id %>">
+    <input class="button-primary" type="submit" value="ADD IDEA">
+  </form>
 
-<div class="">
-  <form action="/hoonta/hoonta_home2" method="post">
-  <input type="button" value="Delete/End Topic"></form>
+  <!-- <form action="/topic/destroy" method="post">
+    <input type="button" value="Delete Topic">
+  </form> -->
 </div>
