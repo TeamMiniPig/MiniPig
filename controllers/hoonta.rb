@@ -28,7 +28,7 @@ class HoontaController < ApplicationController
   get '/home' do
     authorized?
     if session[:hoonta]
-      erb :hoonta_home2
+      erb :hoonta_home
     end
   end
 
@@ -50,7 +50,9 @@ class HoontaController < ApplicationController
           set_message "You're already in that Hoonta.", "error"
           redirect '/home'
 
-        elsif hoonta.password.nil? or params[:password] == hoonta.password
+        elsif hoonta.hoonta_password.nil? or
+              params[:password] == hoonta.hoonta_password
+              
           Roster.create(user_id: user.id, hoonta_id: hoonta.id)
           set_message "Hoonta joined.", "success"
           set_hoonta hoonta.id

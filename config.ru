@@ -4,19 +4,18 @@ require './controllers/application'
 require './controllers/user'
 require './controllers/hoonta'
 require './controllers/idea'
-require './controllers/category'
-require './controllers/roster'
 require './controllers/topic'
-
+require './controllers/vote'
 
 require './models/idea'
-require './models/category'
 require './models/hoonta'
 require './models/user'
 require './models/roster'
 require './models/topic'
+require './models/vote'
 
-map ('/') { run UserController }
+map ('/')       { run UserController }
 map ('/hoonta') { run HoontaController }
-#map ('/roster') { run RosterController }
-map ('/topic') { run TopicController }
+map ('/topic')  { run TopicController }
+map ('/idea')   { run IdeaController }
+map ('/vote')   { run VoteController }

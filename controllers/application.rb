@@ -33,7 +33,14 @@ class ApplicationController < Sinatra::Base
   def get_hoonta
     Hoonta.find(session[:hoonta])
   end
-
+  def get_topic
+    Topic.find(session[:topic])
+  end
+  def vote user_id, idea_id
+    if not Vote.find_by(user_id: user_id, idea_id: idea_id)
+      Vote.create(user_id: user_id, idea_id: idea_id)
+    end
+  end
                                                   # handle session messages
                                                   # style = "success" or "error"
   def set_message message, style
