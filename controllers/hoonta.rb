@@ -50,11 +50,15 @@ class HoontaController < ApplicationController
           set_message "You're already in that Hoonta.", "error"
           redirect '/home'
 
-        else
+        elsif hoonta.password.nil? or params[:password] == hoonta.password
           Roster.create(user_id: user.id, hoonta_id: hoonta.id)
           set_message "Hoonta joined.", "success"
           set_hoonta hoonta.id
           redirect '/hoonta/home'
+
+        else
+          set_message "Incorrect password.", "error"
+          erb :join_hoonta
         end
 
       else

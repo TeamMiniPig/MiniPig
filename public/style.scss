@@ -162,7 +162,8 @@ header {
 
 /* Error message styling */
 .error {
-  width: 200px;
+  min-width: 200px;
+  max-width: 350px;
   height: 25px;
 	background: $error-color;
   border: 2px solid $error-border-color;
@@ -173,7 +174,8 @@ header {
 
 /* Success message styling */
 .success {
-  width: 200px;
+  min-width: 200px;
+  max-width: 350px;
   height: 25px;
 	background: $success-color;
   border: 2px solid $success-border-color;

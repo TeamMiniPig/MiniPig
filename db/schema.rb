@@ -13,11 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20151208211950) do
 
-  create_table "categories", force: :cascade do |t|
-    t.string "category_name",        limit: 255
-    t.string "category_description", limit: 255
-  end
-
   create_table "hoontas", force: :cascade do |t|
     t.string "hoonta_name",     limit: 255
     t.string "hoonta_password", limit: 255
@@ -27,8 +22,8 @@ ActiveRecord::Schema.define(version: 20151208211950) do
     t.string  "idea_name",        limit: 255
     t.string  "idea_description", limit: 255
     t.integer "user_id",          limit: 4
-    t.integer "category_id",      limit: 4
-    t.integer "hoonta_id",        limit: 4
+    t.integer "topic_id",         limit: 4
+    t.integer "votes",            limit: 4
   end
 
   create_table "rosters", force: :cascade do |t|
@@ -37,10 +32,9 @@ ActiveRecord::Schema.define(version: 20151208211950) do
   end
 
   create_table "topics", force: :cascade do |t|
-    t.string  "topic_name",  limit: 255
-    t.string  "deadline",    limit: 255
-    t.integer "hoonta_id",   limit: 4
-    t.integer "category_id", limit: 4
+    t.string  "topic_name", limit: 255
+    t.string  "deadline",   limit: 255
+    t.integer "hoonta_id",  limit: 4
   end
 
   create_table "users", force: :cascade do |t|

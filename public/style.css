@@ -123,7 +123,8 @@ header {
 
 /* Error message styling */
 .error {
-  width: 200px;
+  min-width: 200px;
+  max-width: 350px;
   height: 25px;
   background: #ff4000;
   border: 2px solid #e53900; }
@@ -133,7 +134,8 @@ header {
 
 /* Success message styling */
 .success {
-  width: 200px;
+  min-width: 200px;
+  max-width: 350px;
   height: 25px;
   background: #643a9a;
   border: 2px solid #5a348a; }
