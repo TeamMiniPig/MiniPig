@@ -52,10 +52,34 @@ header {
 .topic-row {
   margin-left: 10px;
   font-size: 1.1em;
-  padding: 7px 0;
+  padding: 7px 7px 2px 7px;
   margin: 5px;
-  background: rgba(94, 214, 37, 0.5);
-  border-radius: 4px; }
+  border-bottom: 2px solid rgba(94, 214, 37, 0.5);
+  border-left: 2px solid rgba(94, 214, 37, 0.5);
+  border-top: 1px solid rgba(94, 214, 37, 0.5);
+  border-right: 1px solid rgba(94, 214, 37, 0.5);
+  background: rgba(94, 214, 37, 0.2);
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: bold; }
+
+.topic-row:hover {
+  background-color: rgba(94, 214, 37, 0.5);
+  border-color: rgba(48, 164, 0, 0.5);
+  color: #BF5059;
+  cursor: pointer; }
+
+.user-box {
+  background: #5ed625;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #F1F9F7;
+  text-align: center;
+  hyphens: auto;
+  min-width: 150px;
+  letter-spacing: 0.1rem;
+  font-size: 1.2rem;
+  cursor: default; }
 
 /* Messages */
 .message-wrapper {
@@ -143,6 +167,10 @@ input[disabled] {
 .thin {
   margin: 0;
   padding: 0; }
+
+.roomy {
+  margin: 10px;
+  padding: 10px; }
 
 /* Hoonta buttons */
 .hoonta-button {
