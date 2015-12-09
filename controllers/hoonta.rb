@@ -42,7 +42,7 @@ class HoontaController < ApplicationController
     hoonta_name = params[:hoonta_name]
 
     if hoonta_name
-      hoonta_name = hoonta_name.downcase
+    #   hoonta_name = hoonta_name.downcase
       hoonta = Hoonta.find_by(hoonta_name: hoonta_name)
 
       if hoonta
@@ -95,5 +95,6 @@ class HoontaController < ApplicationController
       redirect '/hoonta/home'
     end
   end
+
 
 end
