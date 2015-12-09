@@ -126,8 +126,8 @@ header {
   min-width: 200px;
   max-width: 350px;
   height: 25px;
-  background: #ff4000;
-  border: 2px solid #e53900; }
+  background: #ff8c66;
+  border: 2px solid #ff794c; }
 
 .error i:hover {
   color: rgba(214, 15, 15, 0.86); }
@@ -137,8 +137,8 @@ header {
   min-width: 200px;
   max-width: 350px;
   height: 25px;
-  background: #643a9a;
-  border: 2px solid #5a348a; }
+  background: #a288c2;
+  border: 2px solid #9275b8; }
 
 .success i:hover {
   color: rgba(3, 98, 2, 0.82); }
@@ -250,9 +250,9 @@ nav ul ul {
   min-width: 100%;
   height: 0;
   overflow: hidden;
-  background: #643A9A;
+  background: #9C0000;
   z-index: 100;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3); }
+  box-shadow: 0px 2px 0px 3px #D2DF00; }
 
 /* hovering over the drop-down button */
 nav ul li:hover ul {
@@ -263,7 +263,7 @@ nav ul li:hover ul {
 
 /* list items in the drop-down button */
 nav ul ul li {
-  background: #643A9A;
+  background: #9C0000;
   padding-top: 5px;
   float: none;
   display: list-item;
@@ -276,7 +276,7 @@ nav ul ul :last-child {
 
 /* link inside each list item */
 nav ul ul li a {
-  background: #643A9A;
+  background: #9C0000;
   display: block;
   min-width: 84px;
   text-transform: none; }
@@ -284,7 +284,15 @@ nav ul ul li a {
 /* drop-down button when hovering on link child */
 nav ul ul li:hover > a {
   color: #7ad8f5;
-  background: #643A9A; }
+  background: #9C0000; }
+
+.welcome {
+  background-color: #e5e2d8;
+  padding: 20px;
+  margin: 10px; }
+
+.emphasis {
+  font-weight: bold; }
 
 footer {
   position: fixed;
