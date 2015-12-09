@@ -1,14 +1,19 @@
-<h4 class="sub-headline">Topic Name here</h4>
+<% @topic = Topic.find(session[:topic]) %>
+<% @hoonta = Hoonta.find(session[:hoonta]) %>
+<h6><%= "#{@hoonta.hoonta_name}: " %></h6>
+<h4 class="sub-headline"><%= @topic.topic_name %></h4>
 <%= handle_message %>
-<h5>Deadline here</h5>
 
-<form action="/topic" method="post">
+<% if not @topic.deadline.nil? %>
+  <div class="thin row">
+    <h6 class="thin">Deadline: <%= @topic.deadline %></h6>
+  </div>
+<% end %>
 
 <table class="u-full-width">
   <thead>
     <tr>
       <th>Idea</th>
-      <th>Categories</th>
       <th>Deadline</th>
       <th>Number of votes</th>
     </tr>

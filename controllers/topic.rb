@@ -1,13 +1,8 @@
 class TopicController < ApplicationController
 
-
     get '/' do
       authorized?
-      redirect '/topic'
-    end
-
-    get '/topic' do
-      authorized?
+      session[:topic] = params[:id]
       erb :topic
     end
 
@@ -37,14 +32,15 @@ class TopicController < ApplicationController
 
     end
 
-    get '/delete' do
-      authorized?
-      erb :delete_topic
-    end
-    post '/delete' do
-      authorized?
-      redirect '/hoonta_home'
-    end
+    # get '/delete' do
+    #   authorized?
+    #   erb :delete_topic
+    # end
+    # destroy '/delete' do
+    #   authorized?
+    #   Topic.destroy
+    #   redirect '/hoonta/home'
+    # end
 
     get '/vote' do
       authorized?
