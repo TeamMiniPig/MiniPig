@@ -21,17 +21,19 @@
   <% if not @topics.empty? %>
     <% @topics.each do |topic| %>
       <% category = Category.find(topic.category_id).category_name %>
-      <div class="row">
+      <div class="row topic-row">
         <div class="four columns u-full-width">
-          <h5><%= topic.topic_name %></h5>
+          <%= topic.topic_name %>
         </div>
         <div class="four columns u-full-width">
-          <h5><%= category %></h5>
+          <%= category %>
         </div>
         <div class="four columns u-full-width">
-          <h5><%= topic.deadline %></h5>
+          <%= topic.deadline %>
         </div>
       </div>
+      <% end %>
+  <% end %>
   <a href="/topic/create">Create a topic</a>
 
   <div class="row">

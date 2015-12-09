@@ -21,3 +21,10 @@ two people voting on category?
 
 stretch:
   google calendar?
+
+
+user voting on a topic:
+
+  category id
+  hoonta id
+  user id

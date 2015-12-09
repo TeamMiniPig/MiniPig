@@ -75,6 +75,15 @@ header {
   color: $green;
 }
 
+.topic-row {
+  margin-left: 10px;
+  font-size: 1.1em;
+  padding: 7px 0;
+  margin: 5px;
+  background: rgba($faded-green, 0.5);
+  border-radius: 4px;
+}
+
 /* Messages */
 .message-wrapper {
 	padding: 5px;
