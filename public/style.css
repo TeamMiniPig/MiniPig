@@ -61,6 +61,7 @@ header {
   font-weight: bold;
   color: #555252;
   margin: 0 auto;
+  line-height: 2;
   display: inline-block;
   max-width: 500px;
   font-size: 1em; }
@@ -76,8 +77,6 @@ header {
   border: 2px solid rgba(204, 39, 39, 0.63); }
 
 .error i:hover {
-  width: 200px;
-  height: 25px;
   color: rgba(214, 15, 15, 0.86); }
 
 /* Success message styling */
@@ -228,5 +227,31 @@ nav ul ul li a {
 nav ul ul li:hover > a {
   color: #9CD0FF;
   background: #BF5059; }
+
+footer {
+  position: fixed;
+  bottom: 0; }
+
+footer ul,
+footer ul li {
+  margin: 0;
+  padding: 0; }
+
+footer ul li {
+  display: inline;
+  margin: 0;
+  position: relative; }
+
+footer ul li a {
+  display: inline-block;
+  margin: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  color: darkgrey; }
+
+footer ul li a :hover {
+  color: #9CD0FF; }
 
 /*# sourceMappingURL=style.css.map */

@@ -28,60 +28,74 @@
           <div class="twelve columns">
 
             <ul>
-
-              <li><a href="/">home</a></li>
               <!-- Show these two tabs if no one is logged in -->
-
               <% if session[:current_user] == nil %>
-
+                <li><a href="/welcome">welcome</a></li>
                 <li><a href="/login">login</a></li>
                 <li><a href="/register">register</a></li>
 
 
-            <!-- Registered user tabs -->
-            <% else %>
-              <li><a href="#">hoonta</a>
-                <ul>
-                  <li><a href="/hoonta/all">all</a></li>
-                  <li><a href="/hoonta/join">join</a></li>
-                  <li><a href="/hoonta/create">create</a></li>
-                </ul>
-              </li>
+              <!-- Registered user tabs -->
+              <% else %>
+                <li><a href="/home">home</a></li>
 
+                <li><a href="#">hoonta</a>
+                  <ul>
+                    <li><a href="/hoonta/all">all</a></li>
+                    <li><a href="/hoonta/join">join</a></li>
+                    <li><a href="/hoonta/create">create</a></li>
+                  </ul>
+                </li>
 
-              <li><a href="/logout">logout</a></li>
-            <% end %>
+                <li><a href="/logout">logout</a></li>
+              <% end %>
 
-          </ul>
+            </ul>
 
-        </div>
+          </div>
 
-      </nav>
+        </nav>
 
-    </div>
+      </div>
 
-    <div class="container">
-      <div class="row">
-        <div class="six columns thin">
-          <a class="headline" href="/">Hoonta</a>
-        </div>
+      <div class="container">
+        <div class="row">
+
+          <!-- Hoonta at the top -->
+          <div class="six columns thin">
+            <a class="headline" href="/">Hoonta</a>
+          </div>
+
+          <!-- Make a decision, together. -->
           <div class="six columns thin">
             <h5 class="slogan">Make a decision, together.</h5>
           </div>
-      </div>
-    </div>
-  </header>
-                                                      <!-- Ruby Yield -->
-    <div class="container">
-      
-            <!-- Ruby -->
-            <%= yield %>
-            <!-- End Ruby -->
 
         </div>
-
       </div>
+
+    </header>
+                                                      <!-- Ruby Yield -->
+    <div class="container">
+
+      <!-- Ruby -->
+      <%= yield %>
+      <!-- End Ruby -->
+
     </div>
+    <% if session[:current_user] != nil %>
+      <footer>
+        <div class="row">
+          <ul>
+
+            <li>
+              <a href="/welcome">About</a>
+            </li>
+
+          </ul>
+        </div>
+      </footer>
+    <% end %>
 
   </body>
 </html>
