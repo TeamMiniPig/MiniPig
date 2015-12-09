@@ -1,64 +1,20 @@
-<h4 class="sub-headline">YOUR ACCOUNT</h4>
+<h4 class="sub-headline">HOME</h4>
 <%= handle_message %>
 
 <h5>Hoontas needing your input</h5>
 
-<form action="/topic" method="post">
-<table class="u-full-width">
-  <thead>
-    <tr>
-      <th>Hoonta</th>
-      <th>Topic</th>
-      <th>Deadline</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
+<div class="row">
 
-      </td>
-      <td>
+  <div class="four columns u-full-width">
+    <h5>Hoonta</h5>
+  </div>
 
-      </td>
-      <td>
+  <div class="four columns u-full-width">
+    <h5>Topic</h5>
+  </div>
 
-      </td>
-      <td>
-        <input class="button-primary" type="button" value="GO">
-      </td>
-    </tr>
-  </tbody>
-</table>
+  <div class="four columns u-full-width">
+    <h5>Deadline</h5>
+  </div>
 
-</form>
-
-<h5>All Hoontas</h5>
-
-<table class="u-full-width">
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        Hoonta Name
-      </td>
-      <td>
-        <form action="/hoonta/home" method="post">
-        <input class="button-primary" type="button" value="GO">
-        </form>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<div class="">
-  <form action="/create_hoonta" method="post">
-  <input class="button-primary" type="button" value="Create Hoonta">
-  <form action="/join_hoonta" method="post">
-  <input class="button-primary" type="button" value="Join Hoonta">
 </div>
-</form>

@@ -21,17 +21,20 @@
 <% if not @topics.empty? %>
   <% @topics.each do |topic| %>
     <% category = Category.find(topic.category_id).category_name %>
-    <div class="row topic-row">
-      <div class="four columns u-full-width">
-        <%= topic.topic_name %>
+    <form action="/topic" method="get" class="thin">
+      <input hidden type="text" name="id" value="<%= topic.id %>">
+      <div class="row topic-row" onclick="javascript:this.parentNode.submit()">
+        <div class="four columns u-full-width">
+          <%= topic.topic_name %>
+        </div>
+        <div class="four columns u-full-width">
+          <%= category %>
+        </div>
+        <div class="four columns u-full-width">
+          <%= topic.deadline %>
+        </div>
       </div>
-      <div class="four columns u-full-width">
-        <%= category %>
-      </div>
-      <div class="four columns u-full-width">
-        <%= topic.deadline %>
-      </div>
-    </div>
+    </form>
     <% end %>
 <% end %>
 
