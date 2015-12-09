@@ -78,10 +78,35 @@ header {
 .topic-row {
   margin-left: 10px;
   font-size: 1.1em;
-  padding: 7px 0;
+  padding: 7px 7px 2px 7px;
   margin: 5px;
-  background: rgba($faded-green, 0.5);
+  border-bottom: 2px solid rgba($faded-green, 0.5);
+  border-left: 2px solid rgba($faded-green, 0.5);
+  border-top: 1px solid rgba($faded-green, 0.5);
+  border-right: 1px solid rgba($faded-green, 0.5);
+  background: rgba($faded-green, 0.2);
   border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.topic-row:hover {
+  background-color: rgba($faded-green, 0.5);
+  border-color: rgba($green, 0.5);
+  color: $purple;
+  cursor: pointer;
+}
+
+.user-box {
+  background: $faded-green;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: $white;
+  text-align: center;
+  hyphens: auto;
+  min-width: 150px;
+  letter-spacing: 0.1rem;
+  font-size: 1.2rem;
+  cursor: default;
 }
 
 /* Messages */
@@ -183,6 +208,10 @@ input[disabled] {
 .thin {
   margin: 0;
   padding: 0;
+}
+.roomy {
+  margin: 10px;
+  padding: 10px;
 }
 
 
