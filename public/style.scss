@@ -30,27 +30,34 @@
 
 /* Colors */
 $pink-white: #E8DFCD;
-$sky-blue:   #9CD0FF;
+$blue:   #ade7f9;
 $purple:     #BF5059;
 $brown:      #8B4F0D;
-$white:      #F1F9F7;
-$faded-blue: rgb(164, 164, 205);
-$green: rgb(48, 164, 0);
-$faded-green: rgb(94, 214, 37);
-$gray-green: rgb(164, 223, 136);
+$white:      #fffcf1;
+$faded-blue: #d0c3e0;
+// $green: rgb(48, 164, 0);
+$faded-green: #00d819;
+$gray-green: #99dba0;
 
-$error-color: rgba(189, 72, 72, 0.63);
-$error-border-color: rgba(204, 39, 39, 0.63);
-$success-color: rgba(45, 158, 44, 0.6);
-$success-border-color: rgba(3, 98, 2, 0.6);
+$error-color: #ff4000;
+$error-border-color: #e53900;
+$success-color: #643a9a;
+$success-border-color: #5a348a;
+
+// Gem color palette
+$yellow: #D2DF00;
+$sky-blue:   #33c3f0;
+$purple:     #643A9A;
+$red:      #9C0000;
+$green:      #00A513;
 
 html, body {
-  background: #FEFEFE;
+  background: #fffcf1;
 }
 
 header {
-  background: $purple;
-  border-bottom: 3px solid $sky-blue;
+  background: $red;
+  border-bottom: 3px solid $blue;
 }
 
 .headline {
@@ -59,7 +66,7 @@ header {
   color: $white;
 }
 .headline:hover {
-  color: $sky-blue;
+  color: $blue;
 }
 .slogan {
 //  font-weight: bold;
@@ -119,7 +126,7 @@ header {
 }
 .message {
 	font-weight: bold;
-	color: rgb(85, 82, 82);
+	color: $white;
 	margin: 0 auto;
   line-height: 2;
 	display:inline-block;
@@ -128,10 +135,6 @@ header {
 }
 
 
-.row {
-  // border: solid gray 2px;
-  font-size: 13px;
-}
 
 
 /* Error message styling */
@@ -239,9 +242,11 @@ input[disabled] {
 }
 
 //$nav-button-color: rgb(227, 227, 226);
-$nav-button-color: $purple;
+$nav-button-color: $red;
 $nav-button-hover-color: $sky-blue;
 $nav-dropdown-button-color: $purple;
+
+// extra menus- purple!
 
 /* Navigation */
 nav ul,
