@@ -1,35 +1,29 @@
 class HoontaController < ApplicationController
 
   def set_hoonta hoonta_id
-    session[:hoonta] = hoonta_id
+    session[:current_hoonta] = hoonta_id
   end
   def clear_hoonta
-    session[:hoonta] = nil
+    session[:current_hoonta] = nil
   end
 
   get '/' do
     authorized?
-    clear_hoonta
     redirect '/hoonta/all'
   end
 
   get '/all' do
     authorized?
-    clear_hoonta
+    @rosters = Roster.where(user_id: current_user.id)
     erb :hoonta_landing
   end
 
-  post '/all' do
+  get '/home/:id' do
     authorized?
-    set_hoonta params[:id]
-    redirect '/hoonta/home'
-  end
-
-  get '/home' do
-    authorized?
-    if session[:hoonta]
-      erb :hoonta_home
-    end
+    @hoonta  = Hoonta.find(params[:id])
+    @rosters = Roster.where(hoonta_id: @hoonta.id)
+    @topics  = Topic.where(hoonta_id: @hoonta.id)
+    erb :hoonta_home
   end
 
   get '/join' do
@@ -55,8 +49,7 @@ class HoontaController < ApplicationController
 
           Roster.create(user_id: user.id, hoonta_id: hoonta.id)
           set_message "Hoonta joined.", "success"
-          set_hoonta hoonta.id
-          redirect '/hoonta/home'
+          redirect "/hoonta/home/#{hoonta.id}"
 
         else
           set_message "Incorrect password.", "error"
@@ -78,33 +71,39 @@ class HoontaController < ApplicationController
   post '/create' do
     authorized?
 
+    # Catch name collision
+    if Hoonta.find_by(hoonta_name: params[:hoonta_name])
+      set_message "Hoonta already exists.", 'error'
+      erb :create_hoonta
+
     # Catch invalid name
-    if params[:hoonta_name].length < 3
+    elsif params[:hoonta_name].length < 3
       set_message "Hoonta name must be three or more characters long.", 'error'
-      redirect '/hoonta/create'
+      erb :create_hoonta
 
     # Catch invalid password
     elsif params[:enable_password] and params[:hoonta_password].length < 4
       set_message 'Password must be four or more characters long.', 'error'
-      redirect '/hoonta/create'
+      erb :create_hoonta
 
     # Otherwise they're good to go
     else
       if not params[:enable_password]
         params[:hoonta_password] = nil;
       end
-      hoonta = Hoonta.create(hoonta_name: params[:hoonta_name],
-                              hoonta_password: params[:hoonta_password])
+
+      hoonta = Hoonta.create(hoonta_name:     params[:hoonta_name],
+                             hoonta_password: params[:hoonta_password])
+
       set_message 'Hoonta created.', 'success'
-      user = current_user
-      Roster.create(user_id: user.id, hoonta_id: hoonta.id)
-      set_hoonta hoonta.id
-      redirect '/hoonta/home'
+      Roster.create(user_id: session[:current_user], hoonta_id: hoonta.id)
+
+      redirect "/hoonta/home/#{hoonta.id}"
     end
   end
 
-  get '/leave' do
-    Roster.find_by(user_id: current_user.id, hoonta_id: get_hoonta.id).destroy
+  get '/leave/:id' do
+    Roster.find_by(user_id: current_user.id, hoonta_id: params[:id]).destroy
     redirect '/hoonta/all'
   end
 
