@@ -34,4 +34,5 @@ class TopicController < ApplicationController
     redirect "/hoonta/home/#{params[:hoonta_id]}"
   end
 
+
 end

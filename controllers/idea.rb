@@ -42,16 +42,16 @@ class IdeaController < ApplicationController
     redirect "/topic/#{idea.topic_id}"
   end
 
-  #destroy
+
 get '/delete_item/:id' do
   @idea= Idea.find(params[:id])
-  erb :delete_item
+  erb :topic
 end
 
 post '/delete_item' do
   idea= Idea.find(params[:id])
   idea.destroy
-  redirect '/topic'
+  erb :topic
 end
 
 end

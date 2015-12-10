@@ -307,6 +307,14 @@ nav ul ul li:hover > a {
 .emphasis {
   font-weight: bold; }
 
+.definition {
+  text-align: right; }
+
+.definition-italic {
+  text-align: right;
+  font-style: italic;
+  margin-bottom: 0px; }
+
 footer {
   position: fixed;
   bottom: 0; }
