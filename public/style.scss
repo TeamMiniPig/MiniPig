@@ -48,6 +48,8 @@ $error-border-color: #ff794c;
 $success-color: #a288c2;
 $success-border-color: #9275b8;
 
+$trash-color: #e97e31;
+
 // Gem color palette
 $yellow: #D2DF00;
 $sky-blue:   #33c3f0;
@@ -109,6 +111,34 @@ header {
   font-weight: bold;
 }
 
+.table-label {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-left: 10%;
+  color: $green;
+}
+.table-label:hover {
+  color: $blue;
+  cursor: pointer;
+}
+.table-splat {
+  margin: 0 auto;
+  width: 70%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+table {
+  padding: 5px;
+  margin: 0 auto;
+  width: 100%;
+  min-height: 200px;
+}
+
+.flat {
+  margin-top: 0;
+  padding-top: 0;
+}
+
 .topic-row {
   margin-left: 10px;
   font-size: 1.1em;
@@ -136,10 +166,9 @@ header {
   text-align: center;
   display: inline-block
 }
-
-.vote-tally {
-  // position: absolute;
-  // right: 0;
+.trash:hover {
+  color: $trash-color;
+  cursor: pointer;
 }
 
 .user-box {
@@ -172,9 +201,6 @@ header {
 	max-width: 500px;
 	font-size: 1em;
 }
-
-
-
 
 /* Error message styling */
 .error {

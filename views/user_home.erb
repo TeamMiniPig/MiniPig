@@ -3,18 +3,41 @@
 
 <h5>You can vote on these topics:</h5>
 
-<div class="row">
 
-  <div class="four columns u-full-width">
-    <h5>Hoonta</h5>
-  </div>
+    <% if not @rosters.empty? %>
+      <% @rosters.each do |roster| %>
 
-  <div class="four columns u-full-width">
-    <h5>Topic</h5>
-  </div>
+        <% hoonta = Hoonta.find(roster.hoonta_id) %>
+        <% topics = Topic.where(hoonta_id: hoonta.id) %>
+          <% if not topics.empty? %>
+            <span class="table-label"><%= hoonta.hoonta_name %></span>
+            <div class="table-splat">
+            <table class="collapsed">
+              <thead>
+                <tr>
+                  <th>Topic</th>
+                  <th>Deadline</th>
+                </tr>
+              </thead>
+              <tbody>
 
-  <div class="four columns u-full-width">
-    <h5>Deadline</h5>
-  </div>
+                <% topics.each do |topic| %>
 
-</div>
+                  <tr>
+                    <td>
+                      <a href="/topic/<%= topic.id %>">
+                        <%= topic.topic_name %>
+                      </a>
+                    </td>
+                    <td>
+                      <%= topic.deadline %>
+                    </td>
+                  </tr>
+
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+          <% end %>
+        <% end %>
+      <% end %>

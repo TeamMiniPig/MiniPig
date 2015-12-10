@@ -28,6 +28,7 @@ class UserController < ApplicationController
                                                   # GET '/home'
   get '/home' do
     authorized?
+    @rosters = Roster.where(user_id: session[:current_user])
     erb :user_home
   end
 

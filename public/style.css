@@ -72,6 +72,32 @@ header {
   color: #00A513;
   font-weight: bold; }
 
+.table-label {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-left: 10%;
+  color: #00A513; }
+
+.table-label:hover {
+  color: #7ad8f5;
+  cursor: pointer; }
+
+.table-splat {
+  margin: 0 auto;
+  width: 70%;
+  border: 1px solid #ddd;
+  border-radius: 4px; }
+
+table {
+  padding: 5px;
+  margin: 0 auto;
+  width: 100%;
+  min-height: 200px; }
+
+.flat {
+  margin-top: 0;
+  padding-top: 0; }
+
 .topic-row {
   margin-left: 10px;
   font-size: 1.1em;
@@ -97,6 +123,10 @@ header {
   margin-top: 10px;
   text-align: center;
   display: inline-block; }
+
+.trash:hover {
+  color: #e97e31;
+  cursor: pointer; }
 
 .user-box {
   background: #00bf16;
