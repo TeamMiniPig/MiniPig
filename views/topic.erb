@@ -21,33 +21,35 @@
 
 <% if not @ideas.empty? %>
 
-<div class="delete-row">
-  <div class="one columns u-full-width">
-      <form action="/delete_item" method="post">
-        <a class="" href=""><i class="material-icons">delete</i></a>
-      </form>
-  </div>
-</div>
-
-<div class="row">
   <% @ideas.each do |idea| %>
-
-    <form action="/vote/<%= session[:current_user] %>/<%= idea.topic_id %>/<%= idea.id %>" method="post" class="thin">
-
-      <div class="row topic-row" onclick="javascript:this.parentNode.submit()">
-
-        <div class="nine columns u-full-width">
-          <%= idea.idea_name %>
+  <div class="row">
+    <% if session[:current_user] == idea.user_id %>
+      <form action="/idea/delete/<%= idea.id %>" method="post" class="thin">
+        <div class="one column trash" onclick="javascript:this.parentNode.submit()">
+          <i class="material-icons">delete</i>
         </div>
-
-        <div class="two columns vote-tally">
-          <%= Vote.where(idea_id: idea.id).length %>
-        </div>
-
+      </form>
+    <% else %>
+      <div class="one column trash u-full-width">
       </div>
-    </form>
     <% end %>
+
+    <div class="eleven columns topic-row" onclick="javascript:this.childNodes[1].submit()">
+      <form action="/vote/<%= session[:current_user] %>/<%= idea.topic_id %>/<%= idea.id %>"
+            method="post" id="vote-<%= idea.id %>" class="thin">
+
+
+          <div class="nine columns u-full-width">
+            <%= idea.idea_name %>
+          </div>
+
+          <div class="two columns vote-tally">
+            <%= Vote.where(idea_id: idea.id).length %>
+          </div>
+        </form>
+      </div>
   </div>
+    <% end %>
 <% end %>
 
 

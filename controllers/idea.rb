@@ -8,6 +8,14 @@ class IdeaController < ApplicationController
     Idea.find_by(user_id: user_id, topic_id: topic_id)
   end
 
+  #destroy
+  post '/delete/:id' do
+    idea = Idea.find(params[:id])
+    back = idea.topic_id
+    idea.destroy
+    redirect "/topic/#{back}"
+  end
+
   # Coming from the "create idea" form at the bottom of the topic view
   post '/:user_id/:topic_id' do
     authorized?
@@ -42,16 +50,6 @@ class IdeaController < ApplicationController
     redirect "/topic/#{idea.topic_id}"
   end
 
-  #destroy
-get '/delete_item/:id' do
-  @idea= Idea.find(params[:id])
-  erb :delete_item
-end
 
-post '/delete_item' do
-  idea= Idea.find(params[:id])
-  idea.destroy
-  redirect '/topic'
-end
 
 end
