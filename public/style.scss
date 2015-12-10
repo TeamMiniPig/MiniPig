@@ -160,6 +160,7 @@ table {
   cursor: pointer;
 }
 
+<<<<<<< HEAD
 .trash {
   margin-left: 10px;
   margin-top: 10px;
@@ -169,6 +170,11 @@ table {
 .trash:hover {
   color: $trash-color;
   cursor: pointer;
+=======
+.vote-tally {
+  // position: absolute;
+  // right: 0;
+>>>>>>> b2916d3d9cb3d5c05ea68a56a9cc4c198098ea10
 }
 
 .user-box {
@@ -428,6 +434,16 @@ nav ul ul li:hover > a {
   font-weight: bold;
 }
 
+.definition {
+  text-align: right;
+}
+
+.definition-italic {
+  text-align: right;
+  font-style: italic;
+  margin-bottom: 0px;
+}
+
 footer {
   position: fixed;
   bottom: 0;
@@ -457,4 +473,16 @@ footer ul li {
 
 .footer-link:hover {
   color: black;
+}
+
+@media screen {
+  body {
+    width: 75%;
+  }
+}
+
+@media print {
+  body {
+    width: 100%;
+  }
 }

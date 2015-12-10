@@ -107,5 +107,15 @@ class HoontaController < ApplicationController
     redirect '/hoonta/all'
   end
 
+get '/delete_topic/:id' do
+  @topic= Topic.find(params[:id])
+  erb :hoonta_home
+end
+
+post '/delete_topic' do
+  topic= Topic.find(params[:id])
+  topic.destroy
+  erb :hoonta_home
+end
 
 end
