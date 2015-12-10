@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="skeleton-fontawesome-buttons.css">
+
 <% @topic = get_topic %>
 <% @hoonta = Hoonta.find(session[:hoonta]) %>
 <div class="previous-page">
@@ -9,7 +11,10 @@
 
 <div class="row">
 
-  <div class="ten columns u-full-width">
+  <div class="one columns u-full-width">
+    <h5></h5>
+  </div>
+  <div class="nine columns u-full-width">
     <h5>Idea</h5>
   </div>
   <div class="two columns vote-tally">
@@ -19,8 +24,18 @@
 </div>
 <% @ideas = Idea.where(topic_id: @topic.id) %>
 <% if not @ideas.empty? %>
+
+<div class="delete-row">
+  <div class="one columns u-full-width">
+      <form action="/delete_item" method="post">
+        <a class="" href=""><i class="material-icons">delete</i></a>
+      </form>
+  </div>
+</div>
+
 <div class="row">
   <% @ideas.each do |idea| %>
+
     <form action="/vote" method="post" class="thin">
 
       <input hidden type="text" name="idea_id"  value="<%= idea.id %>">
@@ -29,11 +44,12 @@
 
       <div class="row topic-row" onclick="javascript:this.parentNode.submit()">
 
-        <div class="eleven columns u-full-width">
+
+        <div class="nine columns u-full-width">
           <%= idea.idea_name %>
         </div>
 
-        <div class="one columns vote-tally">
+        <div class="two columns vote-tally">
           <%= Vote.where(idea_id: idea.id).length %>
         </div>
 
@@ -43,11 +59,12 @@
   </div>
 <% end %>
 
-Click an idea to vote for it!
+
+Click on an idea to vote for it!
 
 <div class="roomy row">
   <form action="/idea" method="post">
-    <input required type="text" name="idea_name" placeholder="idea">
+    <input required type="text" name="idea_name" placeholder="idea (limit one per user)">
     <input   hidden type="text" name="user_id"   value="<%= current_user.id %>">
     <input   hidden type="text" name="topic_id"  value="<%= @topic.id %>">
     <input class="button-primary" type="submit" value="ADD IDEA">
