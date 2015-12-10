@@ -22,7 +22,8 @@
         <% hoonta = Hoonta.find(roster.hoonta_id) %>
 
         <form action="/hoonta/all" method="post">
-          <div class="three columns u-full-width hoonta-button" onclick="javascript:this.parentNode.submit()">
+          <div class="three columns u-full-width hoonta-button"
+               onclick="javascript:this.parentNode.submit()">
             <input hidden type="text" name="id" value="<%=hoonta.id%>">
             <%= hoonta.hoonta_name %>
           </div>

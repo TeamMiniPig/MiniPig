@@ -52,7 +52,7 @@ class HoontaController < ApplicationController
 
         elsif hoonta.hoonta_password.nil? or
               params[:password] == hoonta.hoonta_password
-              
+
           Roster.create(user_id: user.id, hoonta_id: hoonta.id)
           set_message "Hoonta joined.", "success"
           set_hoonta hoonta.id
@@ -101,6 +101,11 @@ class HoontaController < ApplicationController
       set_hoonta hoonta.id
       redirect '/hoonta/home'
     end
+  end
+
+  get '/leave' do
+    Roster.find_by(user_id: current_user.id, hoonta_id: get_hoonta.id).destroy
+    redirect '/hoonta/all'
   end
 
 
