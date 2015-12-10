@@ -147,6 +147,8 @@ header {
 .close {
   display: inline-block;
   text-align: center;
+  width: 24px;
+  height: 24px;
   float: right;
   margin-right: 7px;
   cursor: pointer;

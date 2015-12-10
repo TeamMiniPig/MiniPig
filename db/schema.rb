@@ -13,41 +13,38 @@
 
 ActiveRecord::Schema.define(version: 20151209215805) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "hoontas", force: :cascade do |t|
-    t.string "hoonta_name"
-    t.string "hoonta_password"
+    t.string "hoonta_name",     limit: 255
+    t.string "hoonta_password", limit: 255
   end
 
   create_table "ideas", force: :cascade do |t|
-    t.string  "idea_name"
-    t.integer "user_id"
-    t.integer "topic_id"
+    t.string  "idea_name", limit: 255
+    t.integer "user_id",   limit: 4
+    t.integer "topic_id",  limit: 4
   end
 
   create_table "rosters", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "hoonta_id"
+    t.integer "user_id",   limit: 4
+    t.integer "hoonta_id", limit: 4
   end
 
   create_table "topics", force: :cascade do |t|
-    t.string  "topic_name"
-    t.string  "deadline"
-    t.integer "hoonta_id"
+    t.string  "topic_name", limit: 255
+    t.string  "deadline",   limit: 255
+    t.integer "hoonta_id",  limit: 4
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "user_name"
-    t.string "display_name"
-    t.string "email"
-    t.string "password_digest"
+    t.string "user_name",       limit: 255
+    t.string "display_name",    limit: 255
+    t.string "email",           limit: 255
+    t.string "password_digest", limit: 255
   end
 
   create_table "votes", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "idea_id"
+    t.integer "user_id", limit: 4
+    t.integer "idea_id", limit: 4
   end
 
 end
