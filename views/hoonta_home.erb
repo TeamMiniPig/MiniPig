@@ -3,27 +3,41 @@
 <%= handle_message %>
 
 <div class="row">
-  <div class="eight columns u-full-width">
+  <div class="one columns u-full-width">
+    <h5></h5>
+  </div>
+  <div class="seven columns u-full-width">
     <h5>topic</h5>
   </div>
-  <div class="four columns u-full-width">
+  <div class="three columns u-full-width">
     <h5>deadline</h5>
   </div>
 </div>
 
 <% if not @topics.empty? %>
-  <% @topics.each do |topic| %>
 
+  <% @topics.each do |topic| %>
     <div class="row">
+      <% if session[:current_user] == topic.user_id %>
+      <form action="/topic/delete/<%= topic.id %>" method="post" class="thin">
+        <div class="one column trash" onclick="javascript:this.parentNode.submit()">
+          <i class="material-icons">delete</i>
+        </div>
+        </form>
+        <% else %>
+          <div class="one column trash u-full-width">
+          </div>
+        <% end %>
 
       <a href="/topic/<%= topic.id %>" method="get">
-        <div class="twelve columns topic-row">
 
-          <div class="eight columns u-full-width">
+        <div class="eleven columns topic-row">
+
+          <div class="seven columns u-full-width">
             <%= topic.topic_name %>
           </div>
 
-          <div class="four columns u-full-width">
+          <div class="three columns u-full-width">
             <%= topic.deadline %>
           </div>
 

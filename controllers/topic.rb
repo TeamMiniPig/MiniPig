@@ -26,7 +26,8 @@ class TopicController < ApplicationController
     else
       Topic.create(topic_name: params[:topic_name],
                    deadline:   params[:deadline],
-                   hoonta_id:  params[:hoonta_id])
+                   hoonta_id:  params[:hoonta_id],
+                   user_id:  params[:user_id])
       set_message "Topic created.", "success"
 
     end

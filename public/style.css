@@ -92,12 +92,6 @@ header {
   color: #643A9A;
   cursor: pointer; }
 
-.trash {
-  margin-left: 10px;
-  margin-top: 10px;
-  text-align: center;
-  display: inline-block; }
-
 .user-box {
   background: #00bf16;
   text-transform: uppercase;
@@ -346,5 +340,12 @@ footer ul li {
 
 .footer-link:hover {
   color: black; }
+
+@media screen {
+  body {
+    width: 75%; } }
+@media print {
+  body {
+    width: 100%; } }
 
 /*# sourceMappingURL=style.css.map */

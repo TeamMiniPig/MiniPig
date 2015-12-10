@@ -118,5 +118,4 @@ post '/delete_topic' do
   erb :hoonta_home
 end
 
-
 end
