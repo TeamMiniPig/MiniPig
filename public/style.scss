@@ -282,6 +282,20 @@ $nav-dropdown-button-color: $red;
 // extra menus- purple!
 
 /* Navigation */
+
+.icon-left{
+  margin-right: 15px;
+  position: relative;
+  vertical-align: middle;
+}
+.icon-right {
+  position: relative;
+  //padding-bottom: 4px;
+  width: 18px;
+  //height: 24px;
+  vertical-align: middle;
+}
+
 nav ul,
 nav ul li {
   margin: 0;
@@ -326,13 +340,7 @@ nav ul ul {
 
 	background: $nav-dropdown-button-color;
 	z-index: 100;
-	box-shadow: 2.2px 2px 2px 2px rgba(0,0,0,0.5);
-}
-
-.material-icons{
-  margin-right: 15px;
-  position: relative;
-  vertical-align: middle;
+	box-shadow: 1px 4px 6px #333333;
 }
 
 /* hovering over the drop-down button */
