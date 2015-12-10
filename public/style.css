@@ -243,6 +243,7 @@ nav ul li a:hover {
 
 /* Drop-Down */
 nav ul ul {
+  margin-left: 10px;
   opacity: 0;
   filter: alpha(opacity=0);
   transition: opacity 0.4s ease-out;
@@ -255,7 +256,7 @@ nav ul ul {
   box-shadow: 2.2px 2px 2px 2px rgba(0, 0, 0, 0.5); }
 
 .material-icons {
-  margin-right: 10px;
+  margin-right: 15px;
   position: relative;
   vertical-align: middle; }
 
