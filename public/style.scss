@@ -34,12 +34,12 @@
 /* Colors */
 $pink-white: #E8DFCD;
 $blue:   #7ad8f5;
-$purple:     #BF5059;
+$purple-old:     #BF5059;
 $brown:      #8B4F0D;
 $white:      #fffcf1;
 $cream:      #e5e2d8;
 $faded-blue: #00dcee;
-// $green: rgb(48, 164, 0);
+$green-old: rgb(48, 164, 0);
 $faded-green: #00bf16;
 $gray-green: #99dba0;
 
@@ -121,18 +121,22 @@ header {
   color: $blue;
   cursor: pointer;
 }
-.table-splat {
+.hoonta-splat {
   margin: 0 auto;
-  width: 70%;
-  border: 1px solid #ddd;
+  border: 2px solid #ddd;
   border-radius: 4px;
+  box-shadow: 1px 2px 3px rgb(186, 186, 186);
+  margin-bottom: 30px;
 }
-table {
-  padding: 5px;
-  margin: 0 auto;
-  width: 100%;
-  min-height: 200px;
+
+.splat-innards {
+  margin: 0 7px;}
+
+.row.title {
+  font-weight: bold;
+  margin-left: 7px;
 }
+
 
 .flat {
   margin-top: 0;
@@ -160,7 +164,6 @@ table {
   cursor: pointer;
 }
 
-<<<<<<< HEAD
 .trash {
   margin-left: 10px;
   margin-top: 10px;
@@ -170,11 +173,6 @@ table {
 .trash:hover {
   color: $trash-color;
   cursor: pointer;
-=======
-.vote-tally {
-  // position: absolute;
-  // right: 0;
->>>>>>> b2916d3d9cb3d5c05ea68a56a9cc4c198098ea10
 }
 
 .user-box {
@@ -475,14 +473,14 @@ footer ul li {
   color: black;
 }
 
-@media screen {
-  body {
-    width: 75%;
-  }
-}
+// @media screen {
+//   body {
+//     width: 75%;
+//   }
+// }
 
-@media print {
-  body {
-    width: 100%;
-  }
-}
+// @media print {
+//   body {
+//     width: 100%;
+//   }
+// }

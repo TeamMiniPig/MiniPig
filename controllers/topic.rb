@@ -18,16 +18,18 @@ class TopicController < ApplicationController
     authorized?
     params[:topic_name] = params[:topic_name].downcase
 
+    # If the topic already exists, don't create it
     if Topic.find_by(topic_name: params[:topic_name],
                      hoonta_id:  params[:hoonta_id])
 
       set_message "Topic already exists.", "error"
 
+    # If it's new, create it
     else
       Topic.create(topic_name: params[:topic_name],
                    deadline:   params[:deadline],
                    hoonta_id:  params[:hoonta_id],
-                   user_id:  params[:user_id])
+                   user_id:    session[:current_user])
       set_message "Topic created.", "success"
 
     end
