@@ -326,6 +326,12 @@ nav ul ul {
 	box-shadow: 2.2px 2px 2px 2px rgba(0,0,0,0.5);
 }
 
+.material-icons{
+  margin-right: 10px;
+  position: relative;
+  vertical-align: middle;
+}
+
 /* hovering over the drop-down button */
 nav ul li:hover ul {
 	opacity: 10;
