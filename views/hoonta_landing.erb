@@ -1,33 +1,27 @@
 <h4 class="sub-headline">your hoontas</h4>
 
-<% @rosters = Roster.where(user_id: current_user.id) %>
-
 <% if not @rosters.empty? %>
-
 
   <div class="row">
     <% if @rosters.kind_of?(Roster) %>
 
       <% hoonta = Hoonta.find(@rosters.hoonta_id) %>
 
-      <form action="/hoonta/all" method="post">
-        <div class="four columns u-full-width">
-          <input hidden type="text" name="id" value="<%=hoonta.id%>">
-          <button class="hoonta-button" type="submit"><%=hoonta.hoonta_hame%></button>
+      <a href="/hoonta/home/<%= hoonta.id %>" method="post">
+        <div class="three columns u-full-width hoonta-button">
+          <%=hoonta.hoonta_hame%>
         </div>
-      form>
+      </a>>
 
     <% else %>
       <% @rosters.each do |roster| %>
         <% hoonta = Hoonta.find(roster.hoonta_id) %>
 
-        <form action="/hoonta/all" method="post">
-          <div class="three columns u-full-width hoonta-button"
-               onclick="javascript:this.parentNode.submit()">
-            <input hidden type="text" name="id" value="<%=hoonta.id%>">
+        <a href="/hoonta/home/<%= hoonta.id %>">
+          <div class="three columns u-full-width hoonta-button">
             <%= hoonta.hoonta_name %>
           </div>
-        </form>
+        </a>
 
       <% end %>
     <% end %>

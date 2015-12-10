@@ -1,49 +1,37 @@
 class TopicController < ApplicationController
 
-    get '/' do
-      authorized?
-      session[:topic] = params[:id]
-      erb :topic
+
+  get '/:id' do
+    authorized?
+    @topic  = Topic.find(params[:id])
+    @hoonta = Hoonta.find(@topic.hoonta_id)
+    @ideas  = Idea.where(topic_id: params[:id])
+    erb :topic
+  end
+
+  get '/create/:hoonta_id' do
+    authorized?
+    @hoonta = Hoonta.find(params[:hoonta_id])
+    erb :create_topic
+  end
+  post '/create/:hoonta_id' do
+    authorized?
+    params[:topic_name] = params[:topic_name].downcase
+
+    if Topic.find_by(topic_name: params[:topic_name],
+                     hoonta_id:  params[:hoonta_id])
+
+      set_message "Topic already exists.", "error"
+
+    else
+      Topic.create(topic_name: params[:topic_name],
+                   deadline:   params[:deadline],
+                   hoonta_id:  params[:hoonta_id])
+      set_message "Topic created.", "success"
+
     end
 
-    get '/create' do
-      authorized?
-      erb :create_topic
-    end
-    post '/create' do
-      authorized?
-      topic = params[:topic]
-      if Topic.find_by(topic_name: topic[:topic_name])
-        set_message "Topic already exists.", "error"
-        redirect '/hoonta/home'
-      else
+    redirect "/hoonta/home/#{params[:hoonta_id]}"
+  end
 
-        Topic.create(topic_name: topic[:topic_name],
-                     deadline: topic[:deadline],
-                     hoonta_id: get_hoonta.id)
-        set_message "Topic created.", "success"
-        redirect '/hoonta/home'
-
-      end
-
-    end
-
-    # get '/delete' do
-    #   authorized?
-    #   erb :delete_topic
-    # end
-    # destroy '/delete' do
-    #   authorized?
-    #   Topic.destroy
-    #   redirect '/hoonta/home'
-    # end
-
-    get '/vote' do
-      authorized?
-      erb :topic
-    end
-    post '/vote' do
-      authorized?
-      redirect '/topic'
-    end
 end

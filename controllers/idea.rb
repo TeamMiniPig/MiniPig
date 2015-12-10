@@ -9,7 +9,7 @@ class IdeaController < ApplicationController
   end
 
   # Coming from the "create idea" form at the bottom of the topic view
-  post '/' do
+  post '/:user_id/:topic_id' do
     authorized?
 
     # ideas are always downcase
@@ -33,11 +33,13 @@ class IdeaController < ApplicationController
         idea.destroy
       end
 
-      idea = Idea.create(params)
+      idea = Idea.create(idea_name: params[:idea_name],
+                         user_id:   params[:user_id],
+                         topic_id:  params[:topic_id])
     end
 
     # Done
-    redirect "/topic?id=#{idea.topic_id}"
+    redirect "/topic/#{idea.topic_id}"
   end
 
 end
