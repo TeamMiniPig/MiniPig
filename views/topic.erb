@@ -10,19 +10,11 @@
   <div class="one columns u-full-width">
     <h5></h5>
   </div>
-<<<<<<< HEAD
-  <div class="eight columns u-full-width">
-    <h5>Idea</h5>
-  </div>
-  <div class="two columns u-full-width">
-    <h5>Votes</h5>
-=======
   <div class="nine columns u-full-width">
     <h5>idea</h5>
   </div>
   <div class="two columns vote-tally">
     <h5>votes</h5>
->>>>>>> b2916d3d9cb3d5c05ea68a56a9cc4c198098ea10
   </div>
 
 </div>
@@ -65,7 +57,7 @@ Click on an idea to vote for it!
 
 <div class="roomy row">
   <form action="/idea/<%= session[:current_user] %>/<%= @topic.id %>" method="post">
-    <input required type="text" name="idea_name" placeholder="idea (limit one per )">
+    <input required type="text" name="idea_name" placeholder="idea (limit one per user)">
     <input class="button-primary" type="submit" value="add idea">
   </form>
 
