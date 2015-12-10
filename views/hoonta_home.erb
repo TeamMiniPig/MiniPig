@@ -7,7 +7,7 @@
 <h4 class="sub-headline"><%=@hoonta.hoonta_name%></h4>
 <%= handle_message %>
 <div class="row">
-  <div class="four columns u-full-width">
+  <div class="eight columns u-full-width">
     <h5>Topic</h5>
   </div>
   <div class="four columns u-full-width">
@@ -21,8 +21,8 @@
   <div class="row">
     <form action="/topic" method="get" class="thin">
       <input hidden type="text" name="id" value="<%= topic.id %>">
-      <div class="eight columns topic-row" onclick="javascript:this.parentNode.submit()">
-        <div class="four columns u-full-width">
+      <div class="twelve columns topic-row" onclick="javascript:this.parentNode.submit()">
+        <div class="eight columns u-full-width">
           <%= topic.topic_name %>
         </div>
         <div class="four columns u-full-width">
