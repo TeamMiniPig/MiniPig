@@ -49,16 +49,16 @@ class IdeaController < ApplicationController
     # Done
     redirect "/topic/#{idea.topic_id}"
   end
-
-get '/delete_item/:id' do
-  @idea= Idea.find(params[:id])
-  erb :topic
-end
-
-post '/delete_item' do
-  idea= Idea.find(params[:id])
-  idea.destroy
-  erb :topic
-end
+  #
+  # get '/delete_topic/:id' do
+  #   @topic= Topic.find(params[:id])
+  #   erb :hoonta_home
+  # end
+  #
+  # post '/delete_topic' do
+  #   topic= Topic.find(params[:id])
+  #   topic.destroy
+  #   erb :hoonta_home
+  # # end
 
 end

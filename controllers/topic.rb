@@ -29,12 +29,24 @@ class TopicController < ApplicationController
       Topic.create(topic_name: params[:topic_name],
                    deadline:   params[:deadline],
                    hoonta_id:  params[:hoonta_id],
+<<<<<<< HEAD
                    user_id:    session[:current_user])
+=======
+                     user_id:  session[:current_user])
+>>>>>>> fe0544cdfad24e32e42c5155d41daa09f9d27d58
       set_message "Topic created.", "success"
 
     end
 
     redirect "/hoonta/home/#{params[:hoonta_id]}"
+  end
+
+
+  post '/delete_topic/:id' do
+    topic= Topic.find(params[:id])
+    hoonta= topic.hoonta_id
+    topic.destroy
+    redirect "/hoonta/home/#{hoonta}"
   end
 
 

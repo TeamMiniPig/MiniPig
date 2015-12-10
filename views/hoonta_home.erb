@@ -19,7 +19,7 @@
   <% @topics.each do |topic| %>
     <div class="row">
       <% if session[:current_user] == topic.user_id %>
-      <form action="/topic/delete/<%= topic.id %>" method="post" class="thin">
+      <form action="/topic/delete_topic/<%= topic.id %>" method="post" class="thin">
         <div class="one column trash" onclick="javascript:this.parentNode.submit()">
           <i class="material-icons">delete</i>
         </div>
