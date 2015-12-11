@@ -15,35 +15,44 @@
 <div class="table-bg">
 <table>
   <tbody>
-<tr>
-  <td>
-    <h5></h5>
-  </td>
-  <td>
-    <div class="title-row">
-    <div class="u-pull-left">
-    topic
-  </div>
-  <div class="u-pull-right">
-    deadline
-  </div>
-</div>
-  </td>
-</tr>
+    <tr>
+
+      <td>
+        <h5></h5>
+      </td>
+
+      <td>
+        <div class="title-row">
+
+          <div class="u-pull-left">
+            topic
+          </div>
+
+          <div class="u-pull-right">
+            deadline
+          </div>
+
+        </div>
+      </td>
+
+    </tr>
   <% @topics.each do |topic| %>
     <tr>
-      <% if session[:current_user] == topic.user_id %>
       <td>
-      <form action="/topic/delete_topic/<%= topic.id %>" method="post" class="thin">
-        <button type="submit" class="one column trash">
-          <i class="material-icons">delete</i>
-        </button>
-      </form>
+        <% if session[:current_user] == topic.user_id %>
+
+          <form action="/topic/delete_topic/<%= topic.id %>" method="post" class="thin">
+            <button type="submit" class="trash">
+              <i class="material-icons">delete</i>
+            </button>
+          </form>
+
       <% else %>
-        <div class="one column trash u-full-width">
+        <div class="trash">
         </div>
       <% end %>
-      </td>
+    </td>
+
       <td class="u-full-width">
       <a href="/topic/<%= topic.id %>" method="get">
 
