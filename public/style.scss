@@ -123,7 +123,7 @@ header {
 .table-label:hover {
   text-decoration: underline;
   cursor: pointer;
-  color: $blue;
+  color: $green;
 }
 .hoonta-splat {
   margin: 0 auto;
@@ -135,9 +135,11 @@ header {
 }
 
 .splat-innards {
-  border-top: 2px solid #ddd;
-  padding: 1% 3%;
+  border-top: 1px solid rgba(black,0.1);
   background: rgba($faded-green, 0.1);
+}
+.splat-innards:hover {
+  background: rgba($faded-green, 0.3)
 }
 
 .splat-item {
@@ -151,12 +153,17 @@ header {
 }
 .splat-item:hover {
   text-decoration: underline;
+  color: $red;
 }
 
 .row.title {
   font-weight: bold;
   font-size: 1.83rem;
   margin-left: 7px;
+}
+.row-title {
+  text-indent: 5px;
+
 }
 
 .flat {
@@ -386,6 +393,7 @@ nav ul li {
 	display: inline;
 	float: left;
 	margin: 0;
+  padding: 3px;
 	position: relative;
 }
 

@@ -2,7 +2,7 @@ class UserController < ApplicationController
 
                                                   # detect collision
   def user_exists? user_name
-    if User.find_by(user_name: user_name)
+    if User.find_by(user_name: user_name.downcase)
       true
     else
       false
@@ -71,8 +71,8 @@ class UserController < ApplicationController
       redirect '/register'
 
     # Catch invalid password
-    elsif user[:password].length < 8
-      set_message "Password must be eight or more characters", "error"
+    elsif user[:password].length < 5
+      set_message "Password must be five or more characters", "error"
       redirect 'register'
 
     # Catch name or email collision

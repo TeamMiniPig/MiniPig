@@ -11,34 +11,42 @@
   <% hoonta = Hoonta.find(roster.hoonta_id) %>
   <% topics = Topic.where(hoonta_id: hoonta.id) %>
     <% if not topics.empty? %>
+
       <span class="">
         <a class="table-label" href="/hoonta/home/<%=hoonta.id%>">
           <%= hoonta.hoonta_name %>
         </a>
       </span>
-      <div class="hoonta-splat">
-        <div class="row title ">
-          <div class="six columns u-full-width">Topic</div>
-          <div class="six columns u-full-width">Deadline</div>
-        </div>
-
+      <table class="u-full-width hoonta-splat">
+        <thead>
+          <tr>
+            <th class="row-title">Topic</th>
+            <th>Deadline</th>
+          </tr>
+        </thead>
+        <tbody>
         <% topics.each do |topic| %>
-        <div class="row splat-innards">
 
-          <div class="six columns u-full-width">
-            <a class="splat-item" href="/topic/<%= topic.id %>">
-              <%= topic.topic_name %>
-            </a>
-          </div>
+          <tr class="splat-innards">
+            <td>
+              <a class="splat-item" href="/topic/<%= topic.id %>">
+                <%= topic.topic_name %>
+              </a>
+            </td>
+            <td>
+              <% if topic.deadline.nil? %>
+                N/A
+              <% else %>
+                <%= topic.deadline %>
+              <% end %>
+            </td>
+          </tr>
 
-          <div class="six columns u-full-width">
-            <%= topic.deadline %>
-          </div>
-        </div>
         <% end %>
-      </div>
-
+      </tbody>
+    </table>
     <% end %>
+
   <% end %>
 <% else %>
   <h5>You don't belong to a hoonta!</h5>
