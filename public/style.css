@@ -108,7 +108,8 @@ header {
   padding: 4px;
   font-size: 1.8rem;
   font-weight: bold;
-  color: #9C0000; }
+  color: #9C0000;
+  word-wrap: normal; }
 
 .splat-item:hover {
   text-decoration: underline;

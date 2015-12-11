@@ -149,6 +149,7 @@ header {
   font-size: 1.8rem;
   font-weight: bold;
   color: $red;
+  word-wrap: normal;
 }
 .splat-item:hover {
   text-decoration: underline;
