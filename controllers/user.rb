@@ -2,7 +2,7 @@ class UserController < ApplicationController
 
                                                   # detect collision
   def user_exists? user_name
-    if User.find_by(user_name: user_name)
+    if User.find_by(user_name: user_name.downcase)
       true
     else
       false
