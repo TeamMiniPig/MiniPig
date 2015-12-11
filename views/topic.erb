@@ -17,13 +17,14 @@
 <%= handle_message %>
 
 <% if not @ideas.empty? %>
+<div class="table-bg">
 <table>
   <tbody>
     <tr>
       <td></td>
       <td>
-        <div class="title-row"><div class="u-pull-left"><h5>idea</h5></div>
-          <div class="u-pull-right"><h5>votes</h5></div>
+        <div class="title-row"><div class="u-pull-left">idea</div>
+          <div class="u-pull-right">votes</div>
         </div>
       </td>
     </tr>
@@ -65,6 +66,7 @@
       <% end %>
     </tbody>
   </table>
+</div>
   <% end %>
 
 

@@ -12,6 +12,7 @@
 <%= handle_message %>
 
 <% if not @topics.empty? %>
+<div class="table-bg">
 <table>
   <tbody>
 <tr>
@@ -21,10 +22,10 @@
   <td>
     <div class="title-row">
     <div class="u-pull-left">
-    <h5>topic</h5>
+    topic
   </div>
   <div class="u-pull-right">
-    <h5>deadline</h5>
+    deadline
   </div>
 </div>
   </td>
@@ -67,10 +68,11 @@
   <% end %>
 </tbody>
 </table>
+</div>
 <% end %>
 
 <div class="roomy row">
-  <a href="/topic/create/<%= @hoonta.id %>"><button>Create a topic</button></a>
+  <a href="/topic/create/<%= @hoonta.id %>"><button class="create-topic-butt">Create a topic</button></a>
 </div>
 
 

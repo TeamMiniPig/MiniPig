@@ -173,8 +173,10 @@ header {
 .title-row {
   margin-left: 10px;
   margin-right: 5%;
+  font-size: 2.3rem;
   width: 90%;
   margin-bottom: none;
+  letter-spacing: -.04em;
 }
 
 .topic-row {
@@ -185,17 +187,22 @@ header {
   margin: 5px;
   border: 1px solid rgba($green, 0.8);
   box-shadow: 1px 2px 3px rgb(186, 186, 186);
-  background: rgba($faded-green, 0.1);
+  background: rgb(164, 244, 144);
   border-radius: 4px;
   text-transform: uppercase;
   font-weight: bold;
   word-wrap: break-word;
 }
 .topic-row:hover {
-  background-color: rgba($faded-green, 0.5);
-  border-color: rgba($green, 0.5);
-  color: $purple;
+  background-color: rgb(195, 249, 179);
+  border-color: $green;
+  color: $red;
   cursor: pointer;
+}
+
+.create-topic-butt {
+  background: #ff3737;
+  color: white;
 }
 
 .trash {
@@ -316,6 +323,14 @@ input[disabled] {
   display: inline-block;
   float: left;
   color: $purple;
+}
+
+.table-bg {
+  background: rgb(254, 253, 221);
+  border: 1px solid #888;
+  border-radius: 20px;
+  padding: 1%;
+  box-shadow: 1px 2px 3px rgba(0,0,0,0.3)
 }
 
 .thin {
