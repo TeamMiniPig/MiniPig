@@ -85,7 +85,7 @@ header {
 .table-label:hover {
   text-decoration: underline;
   cursor: pointer;
-  color: #7ad8f5; }
+  color: #00A513; }
 
 .hoonta-splat {
   margin: 0 auto;
@@ -96,9 +96,11 @@ header {
   margin-bottom: 30px; }
 
 .splat-innards {
-  border-top: 2px solid #ddd;
-  padding: 1% 3%;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
   background: rgba(0, 191, 22, 0.1); }
+
+.splat-innards:hover {
+  background: rgba(0, 191, 22, 0.3); }
 
 .splat-item {
   text-decoration: none;
@@ -109,12 +111,16 @@ header {
   color: #9C0000; }
 
 .splat-item:hover {
-  text-decoration: underline; }
+  text-decoration: underline;
+  color: #9C0000; }
 
 .row.title {
   font-weight: bold;
   font-size: 1.83rem;
   margin-left: 7px; }
+
+.row-title {
+  text-indent: 5px; }
 
 .flat {
   margin-top: 0;
@@ -317,6 +323,7 @@ nav ul li {
   display: inline;
   float: left;
   margin: 0;
+  padding: 3px;
   position: relative; }
 
 /* nav button link */
@@ -337,7 +344,6 @@ nav ul li a:hover {
 /* Drop-Down */
 nav ul ul {
   margin-left: 10px;
-  padding: 0 5px;
   opacity: 0;
   filter: alpha(opacity=0);
   transition: opacity 0.4s ease-out;
