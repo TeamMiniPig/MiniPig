@@ -25,7 +25,6 @@ GEM
     json (1.8.3)
     minitest (5.8.3)
     mysql2 (0.4.2)
-    pg (0.18.4)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
@@ -54,7 +53,6 @@ DEPENDENCIES
   faker
   json
   mysql2
-  pg
   rake
   sinatra
   sinatra-activerecord
