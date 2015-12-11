@@ -41,6 +41,23 @@ class TopicController < ApplicationController
 
   post '/delete_topic/:id' do
     topic  = Topic.find(params[:id])
+    ideas = Idea.where(topic_id: topic.id)
+    
+    # delete all associated ideas and votes
+    if not ideas.empty?
+      ideas.each do |idea|
+
+        votes = Vote.where(idea_id: idea.id)
+        if not votes.empty?
+          votes.each do |vote|
+            vote.destroy
+          end
+        end
+
+        idea.destroy
+      end
+    end
+
     hoonta = topic.hoonta_id
     topic.destroy
     redirect "/hoonta/home/#{hoonta}"

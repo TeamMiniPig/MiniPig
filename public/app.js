@@ -9,7 +9,6 @@ window.onload = function() {
 
 	// Checkbox => parent => parent => first child => first child = input field!
 	var checkBoxes = document.getElementsByClassName('enable-field-checkbox');
-	console.log(checkBoxes)
 	if (checkBoxes.length > 0) {
 		for (var i = 0; i < checkBoxes.length; i++) {
 			checkBoxes[i].onclick = function() {
@@ -24,6 +23,17 @@ window.onload = function() {
 					input.disabled = true;
 				}
 			}
+		}
+	}
+
+	var editIcon = document.getElementById('edit-icon');
+	if (editIcon) {
+		var input = document.getElementById('edit-input');
+		var headline = document.getElementById('edit-target');
+		editIcon.onclick = function() {
+			input.style.display="block";
+			headline.style.display="none";
+			input.focus();
 		}
 	}
 }

@@ -6,6 +6,8 @@ class CreateHoontas < ActiveRecord::Migration
       t.string :hoonta_name
       t.string :hoonta_password
 
+      t.integer :user_id
+
     end
   end
 end

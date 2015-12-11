@@ -1,36 +1,40 @@
 <h4 class="sub-headline">home</h4>
 <%= handle_message %>
 
+
+
+<% if not @rosters.empty? %>
 <h5>you can vote on these topics:</h5>
 
+<% @rosters.each do |roster| %>
 
-    <% if not @rosters.empty? %>
-      <% @rosters.each do |roster| %>
+  <% hoonta = Hoonta.find(roster.hoonta_id) %>
+  <% topics = Topic.where(hoonta_id: hoonta.id) %>
+    <% if not topics.empty? %>
+      <span class="table-label"><%= hoonta.hoonta_name %></span>
+      <div class="hoonta-splat">
+        <div class="row title ">
+          <div class="six columns u-full-width">Topic</div>
+          <div class="six columns u-full-width">Deadline</div>
+        </div>
 
-        <% hoonta = Hoonta.find(roster.hoonta_id) %>
-        <% topics = Topic.where(hoonta_id: hoonta.id) %>
-          <% if not topics.empty? %>
-            <span class="table-label"><%= hoonta.hoonta_name %></span>
-            <div class="hoonta-splat">
-              <div class="row title ">
-                <div class="six columns u-full-width">Topic</div>
-                <div class="six columns u-full-width">Deadline</div>
-              </div>
-
-              <% topics.each do |topic| %>
-              <div class="row splat-innards">
-                <a href="/topic/<%= topic.id %>">
-                  <div class="six columns u-full-width">
-                    <%= topic.topic_name %>
-                  </div>
-                </a>
-                <div class="six columns u-full-width">
-                  <%= topic.deadline %>
-                </div>
-              </div>
-              <% end %>
+        <% topics.each do |topic| %>
+        <div class="row splat-innards">
+          <a href="/topic/<%= topic.id %>">
+            <div class="six columns u-full-width">
+              <%= topic.topic_name %>
             </div>
-
-          <% end %>
+          </a>
+          <div class="six columns u-full-width">
+            <%= topic.deadline %>
+          </div>
+        </div>
         <% end %>
-      <% end %>
+      </div>
+
+    <% end %>
+  <% end %>
+<% else %>
+  <h5>You don't belong to a hoonta!</h5>
+  <a href="/hoonta/create">Create</a> or <a href="/hoonta/join">Join</a> one to get started.
+<% end %>

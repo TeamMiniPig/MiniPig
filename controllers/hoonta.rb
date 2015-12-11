@@ -1,12 +1,5 @@
 class HoontaController < ApplicationController
 
-  def set_hoonta hoonta_id
-    session[:current_hoonta] = hoonta_id
-  end
-  def clear_hoonta
-    session[:current_hoonta] = nil
-  end
-
   get '/' do
     authorized?
     redirect '/hoonta/all'
@@ -24,6 +17,22 @@ class HoontaController < ApplicationController
     @rosters = Roster.where(hoonta_id: @hoonta.id)
     @topics  = Topic.where(hoonta_id: @hoonta.id)
     erb :hoonta_home
+  end
+
+  post '/edit/:id' do
+    authorized?
+    @hoonta = Hoonta.find(params[:id])
+    @rosters = Roster.where(hoonta_id: @hoonta.id)
+    @topics = Topic.where(hoonta_id: @hoonta.id)
+    new_name = params[:new_name]
+    if Hoonta.find_by(hoonta_name: new_name.downcase)
+      set_message "That Hoonta name is already taken.", "error"
+    else
+      @hoonta.hoonta_name = new_name
+      @hoonta.save
+      set_message "Hoonta name changed.", "success"
+    end
+    redirect "/hoonta/home/#{@hoonta.id}"
   end
 
   get '/join' do
@@ -93,7 +102,8 @@ class HoontaController < ApplicationController
       end
 
       hoonta = Hoonta.create(hoonta_name:     params[:hoonta_name],
-                             hoonta_password: params[:hoonta_password])
+                             hoonta_password: params[:hoonta_password],
+                             user_id:         session[:current_user])
 
       set_message 'Hoonta created.', 'success'
       Roster.create(user_id: session[:current_user], hoonta_id: hoonta.id)
