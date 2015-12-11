@@ -16,48 +16,57 @@
 
 <%= handle_message %>
 
-<div class="row">
-  <div class="one column trash u-full-width"></div>
-
-  <div class="two columns u-full-width u-pull-left">
-    <h5>idea</h5>
-  </div>
-  <div class="two columns u-full-width u-pull-right">
-    <h5>votes</h5>
-  </div>
-
-</div>
-
 <% if not @ideas.empty? %>
+<table>
+  <tbody>
+    <tr>
+      <td></td>
+      <td>
+        <div class="title-row"><div class="u-pull-left"><h5>idea</h5></div>
+          <div class="u-pull-right"><h5>votes</h5></div>
+        </div>
+      </td>
+    </tr>
 
-  <% @ideas.each do |idea| %>
-  <div class="row">
-    <% if session[:current_user] == idea.user_id %>
-      <form action="/idea/delete/<%= idea.id %>" method="post" class="thin">
-        <button class="one column trash" type="submit">
-          <i class="material-icons">delete</i>
+    <tbody>
+
+    <% @ideas.each do |idea| %>
+    <tr>
+      <td>
+      <% if session[:current_user] == idea.user_id %>
+        <form action="/idea/delete/<%= idea.id %>" method="post" class="thin">
+          <button class="trash" type="submit">
+            <i class="material-icons">delete</i>
+          </button>
+        </form>
+      <% else %>
+        <div class="trash">
+        </div>
+      <% end %>
+      </td>
+
+
+      <td class="u-full-width">
+        <form action="/vote/<%= session[:current_user] %>/<%= idea.topic_id %>/<%= idea.id %>"
+              method="post" id="vote-<%= idea.id %>" class="thin">
+      <button class="topic-row" type="submit">
+          <div class="u-pull-left">
+            <%= idea.idea_name %>
+          </div>
+          <div class="u-pull-right">
+            <%= Vote.where(idea_id: idea.id).length %>
+          </div>
         </button>
       </form>
-    <% else %>
-      <div class="one column trash u-full-width">
-      </div>
-    <% end %>
+        </td>
+      </tr>
 
-  <form action="/vote/<%= session[:current_user] %>/<%= idea.topic_id %>/<%= idea.id %>"
-        method="post" id="vote-<%= idea.id %>" class="thin">
-    <button class="topic-row" type="submit">
-      <div class="two columns u-full-width u-pull-left ">
-        <%= idea.idea_name %>
-      </div>
 
-      <div class="two columns u-full-width u-pull-right">
-        <%= Vote.where(idea_id: idea.id).length %>
-      </div>
-    </button>
-  </form>
-</div>
-    <% end %>
-<% end %>
+      <% end %>
+    </tbody>
+  </table>
+  <% end %>
+
 
 
 <div class="roomy row"><h6>Click on an idea to vote for it!</h6></div>

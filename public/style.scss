@@ -162,12 +162,18 @@ header {
 }
 .row-title {
   text-indent: 5px;
-
 }
 
 .flat {
   margin-top: 0;
   padding-top: 0;
+}
+
+.title-row {
+  margin-left: 10px;
+  margin-right: 5%;
+  width: 90%;
+  margin-bottom: none;
 }
 
 .topic-row {
@@ -182,6 +188,7 @@ header {
   border-radius: 4px;
   text-transform: uppercase;
   font-weight: bold;
+  word-wrap: break-word;
 }
 .topic-row:hover {
   background-color: rgba($faded-green, 0.5);

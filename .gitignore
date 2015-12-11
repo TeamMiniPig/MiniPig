@@ -4,3 +4,4 @@ Gemfile
 Gemfile.lock
 application.rb
 style.css.map
+style.css

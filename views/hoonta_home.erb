@@ -11,23 +11,28 @@
 
 <%= handle_message %>
 
-<div class="row">
-  <div class="one column u-full-width">
+<% if not @topics.empty? %>
+<table>
+  <tbody>
+<tr>
+  <td>
     <h5></h5>
-  </div>
-  <div class="seven columns u-full-width">
+  </td>
+  <td>
+    <div class="title-row">
+    <div class="u-pull-left">
     <h5>topic</h5>
   </div>
-  <div class="three columns u-full-width">
+  <div class="u-pull-right">
     <h5>deadline</h5>
   </div>
 </div>
-
-<% if not @topics.empty? %>
-
+  </td>
+</tr>
   <% @topics.each do |topic| %>
-    <div class="row">
+    <tr>
       <% if session[:current_user] == topic.user_id %>
+      <td>
       <form action="/topic/delete_topic/<%= topic.id %>" method="post" class="thin">
         <button type="submit" class="one column trash">
           <i class="material-icons">delete</i>
@@ -37,25 +42,31 @@
         <div class="one column trash u-full-width">
         </div>
       <% end %>
-
+      </td>
+      <td class="u-full-width">
       <a href="/topic/<%= topic.id %>" method="get">
 
         <button class="topic-row">
-
-          <div class="two columns u-full-width u-pull-left">
+          <div class="u-pull-left">
             <%= topic.topic_name %>
           </div>
-
-          <div class="three columns u-full-width u-pull-right">
-            <%= topic.deadline %>
+            <div class="u-pull-right">
+            <% if topic.deadline.nil? %>
+              N/A
+            <% else %>
+              <%= topic.deadline %>
+            <% end %>
           </div>
 
         </button>
       </a>
+    </td>
 
-    </div>
+    </tr>
 
   <% end %>
+</tbody>
+</table>
 <% end %>
 
 <div class="roomy row">
