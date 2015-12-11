@@ -2,7 +2,18 @@
   <a href="/hoonta/home/<%= @hoonta.id %>" class="previous-page-link"><%= @hoonta.hoonta_name %></a>
 </div>
 
-<h4 class="flat-sub-headline"><%= @topic.topic_name %></h4>
+
+<form action="/topic/edit/<%= @topic.id %>" method="post">
+  <input type="text" id="edit-input" name="new_name">
+</form>
+
+<h4 id="edit-target" class="flat-sub-headline">
+  <%= @topic.topic_name %>
+  <% if @topic.user_id == session[:current_user] %>
+    <div class="edit-right"><i id="edit-icon" class="material-icons">mode_edit</i></div>
+  <% end %>
+</h4>
+
 <%= handle_message %>
 
 <div class="row">

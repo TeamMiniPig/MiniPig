@@ -25,8 +25,18 @@ class HoontaController < ApplicationController
     @rosters = Roster.where(hoonta_id: @hoonta.id)
     @topics = Topic.where(hoonta_id: @hoonta.id)
     new_name = params[:new_name]
-    if Hoonta.find_by(hoonta_name: new_name.downcase)
+
+    # Just changing capitalization
+    if @hoonta.hoonta_name.downcase == new_name.downcase
+      @hoonta.hoonta_name = new_name
+      @hoonta.save
+      set_message "Hoonta name changed.", "success"
+
+    # Name collision error
+    elsif Hoonta.find_by(hoonta_name: new_name.downcase)
       set_message "That Hoonta name is already taken.", "error"
+
+    # Good to go
     else
       @hoonta.hoonta_name = new_name
       @hoonta.save
