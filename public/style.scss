@@ -486,6 +486,11 @@ nav ul ul li:hover > a {
 .emphasis {
   font-weight: bold;
 }
+.weak {
+  text-transform: none;
+  font-weight: normal;
+  letter-spacing: -0.05em;
+}
 
 .definition {
   text-align: right;
