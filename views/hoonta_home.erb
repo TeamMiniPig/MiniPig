@@ -88,7 +88,7 @@
 <h5>Members</h5>
 <div class="roomy row">
   <% @rosters.each do |roster| %>
-    <div class="two columns user-box roomy">
+    <div class="two columns user-box">
       <%= User.find(roster.user_id).user_name %>
     </div>
   <% end %>
