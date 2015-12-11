@@ -117,13 +117,16 @@ header {
   font-weight: bold;
   margin-left: 10%;
   color: $green;
+  text-decoration: none;
 }
 .table-label:hover {
-  color: $blue;
+  text-decoration: underline;
   cursor: pointer;
+  color: $blue;
 }
 .hoonta-splat {
   margin: 0 auto;
+  width: 80%;
   border: 1px solid black;
   border-radius: 4px;
   box-shadow: 1px 2px 3px rgb(186, 186, 186);
@@ -131,10 +134,26 @@ header {
 }
 
 .splat-innards {
-  margin: 0 7px;}
+  border-top: 2px solid #ddd;
+  padding: 1% 3%;
+  background: rgba($faded-green, 0.1);
+}
+
+.splat-item {
+  text-decoration: none;
+  margin-left: 10px;
+  padding: 4px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: $red;
+}
+.splat-item:hover {
+  text-decoration: underline;
+}
 
 .row.title {
   font-weight: bold;
+  font-size: 1.83rem;
   margin-left: 7px;
 }
 
@@ -145,14 +164,13 @@ header {
 
 .topic-row {
   margin-left: 10px;
+  width: 90%;
   font-size: 1.1em;
-  padding: 7px 7px 2px 7px;
+  height: 50px;
   margin: 5px;
-  border-bottom: 2px solid rgba($faded-green, 0.5);
-  border-left: 2px solid rgba($faded-green, 0.5);
-  border-top: 1px solid rgba($faded-green, 0.5);
-  border-right: 1px solid rgba($faded-green, 0.5);
-  background: rgba($faded-green, 0.2);
+  border: 1px solid rgba($green, 0.8);
+  box-shadow: 1px 2px 3px rgb(186, 186, 186);
+  background: rgba($faded-green, 0.1);
   border-radius: 4px;
   text-transform: uppercase;
   font-weight: bold;
@@ -165,8 +183,9 @@ header {
 }
 
 .trash {
-  margin-left: 10px;
-  margin-top: 10px;
+  padding: 0;
+  border: none;
+  margin-top: 7px;
   text-align: center;
   display: inline-block
 }
@@ -183,6 +202,8 @@ header {
   text-align: center;
   hyphens: auto;
   min-width: 150px;
+  box-shadow: 1px 2px 3px rgb(186, 186, 186);
+  border: 1px solid green;
   letter-spacing: 0.1rem;
   font-size: 1.2rem;
   cursor: default;
@@ -304,9 +325,8 @@ input[disabled] {
   margin: 0 12px 12px 0;
   padding: 15px 0;
   border-radius: 4px;
-  // border: 1px solid $faded-green;
-  // box-sizing: border-box;
-  border: none;
+  border: 1px solid green;
+  box-shadow: 1px 2px 3px rgb(186, 186, 186);
   background: $green;
 }
 .hoonta-button:hover {

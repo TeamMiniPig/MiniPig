@@ -6,17 +6,13 @@
 <%= handle_message %>
 
 <div class="row">
+  <div class="one column trash u-full-width"></div>
 
-  <div class="one columns u-full-width">
-    <h5></h5>
-  </div>
-
-  <div class="nine columns u-full-width">
+  <div class="two columns u-full-width u-pull-left">
     <h5>idea</h5>
   </div>
-  <div class="two columns vote-tally">
+  <div class="two columns u-full-width u-pull-right">
     <h5>votes</h5>
-
   </div>
 
 </div>
@@ -27,35 +23,33 @@
   <div class="row">
     <% if session[:current_user] == idea.user_id %>
       <form action="/idea/delete/<%= idea.id %>" method="post" class="thin">
-        <div class="one column trash" onclick="javascript:this.parentNode.submit()">
+        <button class="one column trash" type="submit">
           <i class="material-icons">delete</i>
-        </div>
+        </button>
       </form>
     <% else %>
       <div class="one column trash u-full-width">
       </div>
     <% end %>
 
-    <div class="eleven columns topic-row" onclick="javascript:this.childNodes[1].submit()">
-      <form action="/vote/<%= session[:current_user] %>/<%= idea.topic_id %>/<%= idea.id %>"
-            method="post" id="vote-<%= idea.id %>" class="thin">
-
-
-          <div class="nine columns u-full-width">
-            <%= idea.idea_name %>
-          </div>
-
-          <div class="two columns vote-tally">
-            <%= Vote.where(idea_id: idea.id).length %>
-          </div>
-        </form>
+  <form action="/vote/<%= session[:current_user] %>/<%= idea.topic_id %>/<%= idea.id %>"
+        method="post" id="vote-<%= idea.id %>" class="thin">
+    <button class="topic-row" type="submit">
+      <div class="two columns u-full-width u-pull-left ">
+        <%= idea.idea_name %>
       </div>
-  </div>
+
+      <div class="two columns u-full-width u-pull-right">
+        <%= Vote.where(idea_id: idea.id).length %>
+      </div>
+    </button>
+  </form>
+</div>
     <% end %>
 <% end %>
 
 
-Click on an idea to vote for it!
+<div class="roomy row"><h6>Click on an idea to vote for it!</h6></div>
 
 <div class="roomy row">
   <form action="/idea/<%= session[:current_user] %>/<%= @topic.id %>" method="post">

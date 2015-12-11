@@ -11,7 +11,11 @@
   <% hoonta = Hoonta.find(roster.hoonta_id) %>
   <% topics = Topic.where(hoonta_id: hoonta.id) %>
     <% if not topics.empty? %>
-      <span class="table-label"><%= hoonta.hoonta_name %></span>
+      <span class="">
+        <a class="table-label" href="/hoonta/home/<%=hoonta.id%>">
+          <%= hoonta.hoonta_name %>
+        </a>
+      </span>
       <div class="hoonta-splat">
         <div class="row title ">
           <div class="six columns u-full-width">Topic</div>
@@ -20,11 +24,13 @@
 
         <% topics.each do |topic| %>
         <div class="row splat-innards">
-          <a href="/topic/<%= topic.id %>">
-            <div class="six columns u-full-width">
+
+          <div class="six columns u-full-width">
+            <a class="splat-item" href="/topic/<%= topic.id %>">
               <%= topic.topic_name %>
-            </div>
-          </a>
+            </a>
+          </div>
+
           <div class="six columns u-full-width">
             <%= topic.deadline %>
           </div>
