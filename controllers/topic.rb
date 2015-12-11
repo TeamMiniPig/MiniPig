@@ -14,6 +14,7 @@ class TopicController < ApplicationController
     @hoonta = Hoonta.find(params[:hoonta_id])
     erb :create_topic
   end
+
   post '/create/:hoonta_id' do
     authorized?
     params[:topic_name] = params[:topic_name].downcase
@@ -38,11 +39,33 @@ class TopicController < ApplicationController
     redirect "/hoonta/home/#{params[:hoonta_id]}"
   end
 
+  post '/edit/:id' do
+    authorized?
+    @topic = Topic.find(params[:id])
+    @hoonta = Hoonta.find(@topic.hoonta_id)
+    @ideas = Idea.where(topic_id: @topic.id)
+    new_name = params[:new_name].downcase
+
+    # Name collision error. Changing capitalization is okay
+    if @topic.topic_name != new_name and
+       Topic.find_by(topic_name: new_name, hoonta_id: @topic.hoonta_id)
+
+      set_message "That topic already exists.", "error"
+
+    # Good to go
+    else
+      @topic.topic_name = new_name
+      @topic.save
+      set_message "Topic name changed.", "success"
+    end
+    redirect "/topic/#{@topic.id}"
+  end
+
 
   post '/delete_topic/:id' do
     topic  = Topic.find(params[:id])
     ideas = Idea.where(topic_id: topic.id)
-    
+
     # delete all associated ideas and votes
     if not ideas.empty?
       ideas.each do |idea|
