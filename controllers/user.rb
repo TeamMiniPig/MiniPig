@@ -1,10 +1,8 @@
 class UserController < ApplicationController
 
                                                   # detect collision
-  def user_or_email_exists? user_name, email
+  def user_exists? user_name
     if User.find_by(user_name: user_name)
-      true
-    elsif User.find_by(email: email)
       true
     else
       false
@@ -78,7 +76,7 @@ class UserController < ApplicationController
       redirect 'register'
 
     # Catch name or email collision
-    elsif user_or_email_exists? user[:user_name], user[:email]
+    elsif user_exists? user[:user_name]
       set_message "Username or email is already is use", "error"
       redirect '/register'
 
