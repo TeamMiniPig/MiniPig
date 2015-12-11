@@ -149,6 +149,7 @@ header {
   font-size: 1.8rem;
   font-weight: bold;
   color: $red;
+
 }
 .splat-item:hover {
   text-decoration: underline;
@@ -520,14 +521,7 @@ footer ul li {
   color: black;
 }
 
-// @media screen {
-//   body {
-//     width: 75%;
-//   }
-// }
-
-// @media print {
-//   body {
-//     width: 100%;
-//   }
+// @media{
+//     zoom: 1.0;
+//     width: extend-to-zoom;
 // }

@@ -17,6 +17,7 @@ GEM
     arel (6.0.3)
     bcrypt (3.1.10)
     builder (3.2.2)
+    date_format (0.3.2)
     env (0.3.0)
     faker (1.6.1)
       i18n (~> 0.5)
@@ -48,6 +49,7 @@ DEPENDENCIES
   activerecord
   activesupport
   bcrypt
+  date_format
   env
   faker
   json
