@@ -8,3 +8,12 @@
 
 
 ![alt tag](http://i.imgur.com/eYEM04l.png)
+
+####Created with: Ruby, Sass, Skeleton
+
+####Working:
+#####Registration, login, authentication, joining a hoonta, creating a hoonta, creating a topic, deleting a topic, creating idea, voting, leaving hoonta
+
+####Goals:
+#####Saving ideas, archiving topics, integrating user display names, user photos
+
